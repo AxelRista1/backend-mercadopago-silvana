@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
-import mercadopago from "mercadopago";
 import dotenv from "dotenv";
+import MercadoPago from "mercadopago";
 
 dotenv.config();
 
@@ -9,13 +9,12 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-/* ---------- CONFIG ---------- */
-const FRONT_URL = "https://TU-FRONTEND-REAL.com"; // CAMBIAR
 const PORT = process.env.PORT || 3000;
+const FRONT_URL = process.env.FRONT_URL;
 
 /* ---------- MERCADO PAGO ---------- */
-mercadopago.configure({
-  access_token: process.env.MP_ACCESS_TOKEN // APP_USR
+const mpClient = new MercadoPago({
+  accessToken: process.env.MP_ACCESS_TOKEN // APP_USR
 });
 
 /* ---------- CURSOS ---------- */
@@ -51,13 +50,17 @@ app.post("/crear-preferencia", async (req, res) => {
       auto_return: "approved"
     };
 
-    const response = await mercadopago.preferences.create(preference);
-    res.json({ id: response.body.id });
+    const response = await mpClient.preferences.create(preference);
+    res.json({ id: response.id });
 
   } catch (error) {
-    console.error(error);
+    console.error("Mercado Pago error:", error);
     res.status(500).json({ error: "Error Mercado Pago" });
   }
+});
+
+app.get("/", (req, res) => {
+  res.send("✅ Backend Mercado Pago activo");
 });
 
 app.listen(PORT, () => {
