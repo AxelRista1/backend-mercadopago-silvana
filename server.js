@@ -69,3 +69,20 @@ app.get("/", (req, res) => {
 app.listen(PORT, () => {
   console.log(`🔥 Backend activo en puerto ${PORT}`);
 });
+app.get("/verificar-pago/:paymentId", async (req, res) => {
+  try {
+    const paymentId = req.params.paymentId;
+
+    const payment = await mpClient.payment.get(paymentId);
+
+    if (payment.status === "approved") {
+      res.json({ aprobado: true });
+    } else {
+      res.json({ aprobado: false });
+    }
+
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ aprobado: false });
+  }
+});
