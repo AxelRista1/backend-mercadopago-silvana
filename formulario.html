@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PÁGINA SILVANA</title>
+
+  <!-- CSS externo -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Fuente Roboto -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+
+  <!-- Íconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Typekit -->
+  <script>
+    (function(d) {
+      var config = {
+        kitId: 'pnz3mgc',
+        scriptTimeout: 3000,
+        async: true
+      },
+      h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+    })(document);
+  </script>
+</head>
+<body>
+
+</body>
+</html>
+
+
+  <section>
+    <form class="feng-form" id="fengForm">
+
+  <h2>Solicitud de Asesoría Feng Shui</h2>
+
+  <label>Tipo de solicitud</label>
+  <select id="tipo" required>
+    <option value="">Seleccionar opción</option>
+    <option>Arquitectura</option>
+    <option>Oficinas y locales</option>
+    <option>Hogares</option>
+    <option>Jardines feng shui</option>
+  </select>
+
+  <h3>Datos de contacto</h3>
+
+  <label>Nombre y apellido *</label>
+  <input type="text" id="nombre" required>
+
+  <label>Email *</label>
+  <input type="email" id="email" required>
+
+  <label>Teléfono</label>
+  <input type="tel" id="telefono">
+
+  <label>Provincia / Ciudad / País *</label>
+  <input type="text" id="ubicacion" required>
+
+  <h3>Información del estudio</h3>
+
+  <label>¿Para quién es la consulta?</label>
+  <select id="paraQuien">
+    <option>Para mí</option>
+    <option>Para otra persona – Hombre</option>
+    <option>Para otra persona – Mujer</option>
+  </select>
+
+  <label>Tipo de estudio</label>
+  <select id="estudio">
+    <option>Diagnóstico de hogar</option>
+    <option>Local comercial</option>
+    <option>Empresa</option>
+    <option>Carta geomántica</option>
+    <option>Ba Zi</option>
+    <option>KI de las 9 estrellas</option>
+    <option>Selección de fechas favorables</option>
+    <option>Consulta general</option>
+    <option>Otro</option>
+  </select>
+
+  <label>Descripción breve</label>
+  <textarea id="descripcion" rows="4"></textarea>
+
+  <label>Fecha de nacimiento completa *</label>
+  <input type="text" id="nacimiento" placeholder="DD/MM/AAAA – HH:MM" required>
+
+  <h3>Mensaje adicional</h3>
+  <textarea id="mensaje" rows="4" placeholder="Comentarios o detalles personales..."></textarea>
+
+  <p class="privacidad">
+    Tus datos se utilizarán exclusivamente para la elaboración del diagnóstico o asesoría personalizada.
+  </p>
+
+  <button type="submit">Enviar consulta</button>
+  
+
+</form>
+<div class="mensaje-gracias" id="mensajeGracias">
+  <h2>¡Gracias por tu consulta! 💫</h2>
+  <p>
+    Tu mensaje fue preparado correctamente.<br>
+    Te contactaré a la brevedad para continuar con la asesoría.
+  </p>
+  <button id="volverForm">Volver atrás</button>
+</div>
+      
+  </section>
+  <script>
+const form = document.getElementById("fengForm");
+const mensajeGracias = document.getElementById("mensajeGracias");
+const volverBtn = document.getElementById("volverForm");
+
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const cuerpo =
+`Tipo de solicitud: ${tipo.value}
+
+Nombre: ${nombre.value}
+Email: ${email.value}
+Teléfono: ${telefono.value}
+Ubicación: ${ubicacion.value}
+
+¿Para quién es?: ${paraQuien.value}
+Tipo de estudio: ${estudio.value}
+
+Descripción:
+${descripcion.value}
+
+Fecha de nacimiento:
+${nacimiento.value}
+
+Mensaje adicional:
+${mensaje.value}`;
+
+  const mailtoLink =
+    "mailto:silvanaschenkasesora@gmail.com" +
+    "?subject=" + encodeURIComponent("Consulta Feng Shui") +
+    "&body=" + encodeURIComponent(cuerpo);
+
+  const confirmar = confirm(
+    "¿Deseas enviar esta consulta por correo?\n\n" +
+    "Se abrirá tu correo para finalizar el envío."
+  );
+
+  if (confirmar) {
+    window.location.href = mailtoLink;
+
+    form.style.display = "none";
+    mensajeGracias.style.display = "block";
+  }
+});
+
+volverBtn.addEventListener("click", function () {
+  mensajeGracias.style.display = "none";
+  form.style.display = "block";
+});
+</script>
+<script>
+const tipoSelect = document.getElementById("tipo");
+const estudioSelect = document.getElementById("estudio");
+
+tipoSelect.addEventListener("change", () => {
+  const opciones = estudioSelect.options;
+
+  for (let opcion of opciones) {
+    if (opcion.text === "Diagnóstico de hogar") {
+
+      if (tipoSelect.value === "Oficinas y locales") {
+        opcion.style.display = "none";
+        estudioSelect.value = ""; // resetea selección
+      } else {
+        opcion.style.display = "block";
+      }
+
+    }
+  }
+});
+</script>
+
+</body>
+</html>
+

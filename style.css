@@ -1,0 +1,1987 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* -------- BASE -------- */
+
+body {
+font-family: 'Playfair Display', serif;
+  color: #333;
+  margin: 0;
+  line-height: 1.6;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.35), rgba(0,0,0,0.45)),
+    url('imagenes/fondo feng shui.jpg') center/cover no-repeat fixed;
+  background-color: #fff;
+  padding-top: 90px;
+}
+
+h1, h2, h3 {
+  margin-bottom: 10px;
+}
+
+/* -------- HEADER PRINCIPAL -------- */
+.main-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between; /* Logo izq - menú der */
+  align-items: center;
+  padding: 1rem 2rem;
+  font-size: 1.2em;
+  font-weight: bold;
+  background: rgba(255, 255, 255, 0.95);
+  color: #663030;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  backdrop-filter: blur(6px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  flex-wrap: wrap;
+}
+
+/* -------- LOGO -------- */
+.logo img {
+  height: 60px;
+  max-width: 100%;
+}
+
+/* -------- MENÚ PRINCIPAL -------- */
+nav {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end; /* Mueve el menú a la derecha */
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 0.8rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-menu li {
+  position: relative;
+}
+
+.nav-menu li a {
+  color: #663030;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 10px 14px;
+  display: block;
+  transition: color 0.3s ease;
+}
+
+.nav-menu li a:hover {
+  color: #3f0404;
+}
+
+/* -------- SUBMENÚ -------- */
+.submenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: linear-gradient(145deg, rgba(255,255,255,0.96), rgba(245,245,245,0.92));
+  min-width: 230px;
+  list-style: none;
+  padding: 10px 0;
+  margin: 0;
+  border-radius: 14px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15), 0 8px 24px rgba(0,0,0,0.1);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-12px) scale(0.98);
+  transition: all 0.35s cubic-bezier(0.25, 1, 0.3, 1);
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.4);
+}
+
+.submenu li a {
+  padding: 12px 20px;
+  color: #663030;
+  font-weight: 500;
+  font-size: 1em;
+  display: block;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.submenu li a:hover {
+  background: linear-gradient(90deg, #72fa57, #58e445);
+  color: #fff;
+  box-shadow: 0 0 12px rgba(114,250,87,0.4);
+  transform: translateX(3px);
+}
+
+/* Mostrar submenú al pasar mouse */
+.dropdown:hover > .submenu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+/* -------- FLECHA -------- */
+.menu-arrow {
+  display: none;
+  font-size: 1.8rem;
+  color: #663030;
+  cursor: pointer;
+  margin-left: auto;
+  transition: transform 0.3s ease;
+}
+
+@media (max-width: 900px) {
+  /* Mostrar flecha en móviles */
+  .menu-arrow {
+    display: block;
+  }
+
+  /* Menú principal */
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 1rem;
+    background: rgba(255,255,255,0.97);
+    border-radius: 12px;
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  .nav-menu li {
+    width: 100%;
+  }
+
+  .nav-menu li a {
+    padding: 0.8rem 1.2rem;
+  }
+
+  /* Ocultar submenú completamente */
+  .submenu {
+    display: none !important; /* nunca se muestra en móvil */
+  }
+}
+/* -------- HEADER COMPACTO EN CELULARES -------- */
+@media (max-width: 600px) {
+
+  .main-header {
+    padding: 0.4rem 0.8rem; /* menos altura */
+    backdrop-filter: blur(4px);
+  }
+
+  .logo img {
+    height: 48px; /* reduce mucho el alto */
+  }
+
+  nav {
+    width: auto;
+  }
+
+  .menu-arrow {
+    font-size: 1.6rem;
+  }
+
+  .nav-menu {
+    margin-top: 0.5rem;
+    padding: 0.5rem 0;
+  }
+
+  .nav-menu li a {
+    padding: 0.6rem 1rem;
+    font-size: 0.95rem;
+  }
+}
+  
+
+
+
+/* -------- HERO -------- */
+.hero, .doss {
+
+  color: #fff;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+
+.hero img {
+  max-width: 90%;
+  height: auto;
+  border-radius: 5px;
+}
+
+
+.hero-content, .doss-content {
+  max-width: 700px;
+  padding: 1rem;
+} 
+
+.doss img{
+  max-width: 55%;
+  height: auto;
+  border-radius: 5px;
+}
+
+
+
+/* -------- SECCIONES -------- */
+section {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+/* -------- BOTÓN -------- */
+.btn {
+  display: inline-block;
+  background: #770101;
+  color: #fff;
+  padding: 12px 25px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+.btn:hover {
+  background: #550000;
+}
+
+.servicios {
+  max-width: 80%;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+  text-align: center;
+  background-color: #fffaf7;
+  color: #663030;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: 'Playfair Display', serif;
+}
+
+.servicios h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.3rem;
+  color: #a05252;
+}
+
+.servicios p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+
+.video-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background:url(imagenes/fondo\ para\ videos) center/cover no-repeat ;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.video-container iframe {
+  width: 700px !important;   /* fuerza un ancho más chico */
+  height: 450px !important;  /* mantiene proporción 16:9 */
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsivo para pantallas chicas */
+@media (max-width: 768px) {
+  .video-container iframe {
+    width: 90% !important;
+    height: auto !important;
+  }
+}
+
+.recetas {
+  background: #fff;
+  color: #663030;
+  font-size: 1.1em;
+  margin: 20px auto;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  max-width: 80%;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Primera imagen: se adapta al espacio disponible */
+.recetas img:first-child {
+  flex: 1 1 45%;
+  max-width: 45%;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  height: auto;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+/* Segunda imagen: mantiene su tamaño original */
+.recetas img:last-child {
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  height: auto;
+  width: auto;
+  max-width: 100%;
+  transition: transform 0.3s ease;
+}
+
+/* Efecto hover opcional */
+.recetas img:hover {
+  transform: scale(1.03);
+}
+@media (min-width: 1920px) {
+  .recetas {
+    max-width: 70%;
+    gap: 40px;
+  }
+
+  .recetas img:first-child,
+  .recetas img:last-child {
+    flex: 1 1 45%;
+    max-width: 45%;
+  }
+}
+/* 💻 En pantallas menores a 1280px: mismas proporciones lado a lado */
+@media (max-width: 1600px) {
+  .recetas {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  .recetas img:first-child,
+  .recetas img:last-child {
+    flex: 1 1 48%;
+    max-width: 48%;
+    height: auto;
+  }
+}
+/* 💻 En pantallas menores a 1280px: mismas proporciones lado a lado */
+@media (max-width: 1280px) {
+  .recetas {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  .recetas img:first-child,
+  .recetas img:last-child {
+    flex: 1 1 48%;
+    max-width: 48%;
+    height: auto;
+  }
+}
+
+/* 📱 En pantallas menores a 1024px: se apilan verticalmente */
+@media (max-width: 1024px) {
+  .recetas {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .recetas img:first-child,
+  .recetas img:last-child {
+    max-width: 90%;
+    width: auto;
+  }
+}
+@media (max-width: 768px) {
+  .recetas {
+    padding: 1rem;
+    gap: 15px;
+  }
+
+  .recetas img:first-child,
+  .recetas img:last-child {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+  }
+}
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap');
+
+.introduccion-recetas {
+  position: relative;
+  background-color: #ffffff; /* tono suave */
+  color: #663030;
+  text-align: center;
+  width: 100%;
+  padding: 6rem 2rem;
+  margin: 0 auto;
+  font-family: 'Playfair Display', serif;
+  overflow: hidden;
+}
+
+/* 🌸 Mandala decorativo permanente */
+.introduccion-recetas::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('imagenes/LogoTaza-SOMMELIER-30mm.png') center/400px no-repeat;
+  opacity: 0.4; /* visible, pero no distrae */
+  z-index: 0;
+}
+
+/* Texto encima de la decoración */
+.introduccion-recetas h2,
+.introduccion-recetas p {
+  position: relative;
+  z-index: 1;
+}
+
+/* Título elegante con línea dorada */
+.introduccion-recetas h2 {
+  font-size: 3em;
+  margin-bottom: 0.5em;
+  letter-spacing: 1px;
+  padding-bottom: 10px;
+}
+
+
+
+/* Texto descriptivo */
+.introduccion-recetas p {
+  font-size: 1.6em;
+  line-height: 1.8;
+  max-width: 850px;
+  margin: 25px auto 0 auto;
+  color: #663030;
+}
+
+.Asesoría {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  background: #fff;
+  color: #663030;
+  font-size: 1.1em;
+  margin: 20px auto;
+  padding: 2rem;
+  max-width: 80%;
+  text-align: justify;
+}
+
+/* Alternar imagen/texto */
+.Asesoría:nth-child(even)
+ {
+  flex-direction: row-reverse;
+}
+.Asesoría img{
+  max-width: 60%;
+  height: auto;
+  border: 3px solid #550000;
+  border-radius: 8px;
+}
+
+/* 🔸 Vista "tarjeta profesional" entre 1200px y 1600px */
+@media (min-width: 1200px) and (max-width: 1600px) {
+  .Asesoría {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;       /* Imagen y texto del mismo alto */
+    justify-content: center;
+    gap: 2rem;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    overflow: hidden;
+    padding: 0;
+    max-width: 90%;
+  }
+
+  /* Imagen ocupa todo el alto */
+  .Asesoría img {
+    margin-top: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 30px;
+    flex: 1 1 50%;
+    height: auto;
+    max-height: 100%;
+    object-fit: cover;
+    border: none;
+    border-radius: 0;
+  }
+
+  /* Contenedor del texto */
+  .Asesoría .servicio-lista {
+    flex: 1 1 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    padding: 2rem 3rem;
+  }
+
+  /* Contenido interno */
+  .Asesoría .servicio {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;  /* 🔹 centra todo el contenido, incluido el botón */
+    gap: 1.2rem;
+    text-align: center;   /* 🔹 centra también los textos */
+  }
+
+  /* Tipografía más chica */
+  .Asesoría h3 {
+    font-size: 1rem;
+    color: #663030;
+  }
+
+  .Asesoría p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #663030;
+  }
+
+  /* Botón centrado */
+  .Asesoría a.btn {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.4rem;
+    border-radius: 8px;
+    margin-top: 0.5rem;
+    background: #a05252;
+    color: #fff;
+    text-decoration: none;
+    transition: 0.3s;
+  }
+
+  .Asesoría a.btn:hover {
+    background: #663030;
+    transform: scale(1.05);
+  }
+}
+
+@media (min-width: 1025px) {
+  .Asesoría
+  {
+    flex-direction: row; /* Imagen a un lado, texto al otro */
+    align-items: flex-start;
+    justify-content: center;
+    gap: 3rem; /* Espacio entre la imagen y el bloque de texto */
+    text-align: justify;
+  }
+
+  /* Imagen */
+  .Asesoría img{
+    flex: 1;
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+
+  /* Contenedor de la información */
+  .Asesoría .contenido{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem; /* espacio entre recuadros */
+  }
+
+  /* Cada recuadro de texto */
+  .Asesoría .contenido div{
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(102,48,48,0.2);
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    line-height: 1.4; /* 🔹 menos interlineado */
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    text-align: justify;
+  }
+} 
+/* ----------------------
+   Móvil: imagen arriba,
+   texto abajo (forzado)
+   ---------------------- */
+   @media (max-width: 900px) {
+    /* Forzar columna y centrar contenido */
+    .Asesoría
+    {
+      flex-direction: column !important;
+      align-items: center;
+      justify-content: center;
+      gap: 1.25rem; /* menos gap vertical si querés */
+      text-align: center;
+    }
+  
+    /* Abarca imagenes directas y dentro de wrappers (img, .imagen img, .img-container img) */
+    .Asesoría img,
+    .Asesoría .imagen img,
+    .Asesoría .img-container img
+    {
+      width: 100%;
+      max-width: 600px;    /* opcional: evitar que se haga gigante */
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+      order: -1;           /* asegura que la imagen quede antes del texto */
+    }
+  
+    /* Si el texto está dentro de un div, asegurar orden */
+    .Asesoría > *:not(img),
+    .Asesoría .contenido
+{
+      order: 0;
+      width: 100%;
+    }
+  
+    /* Si alguna regla previene el apilamiento (por ejemplo .Asesoría:nth-child(even) con row-reverse), la anulamos */
+    .Asesoría:nth-child(even)
+    {
+      flex-direction: column !important;
+    }
+  }
+
+
+
+  .talleres {
+    background: #fff;
+    color: #663030;
+    font-size: 1.1em;
+    margin: 40px auto;
+    padding: 3rem 2rem;
+    border-radius: 15px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+    max-width: 85%;
+    line-height: 1.8;
+  }
+  
+  /* Contenedor principal */
+  .taller-contenedor {
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  /* Imagen */
+  .taller-imagen {
+    flex: 1 1 40%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .taller-imagen img {
+    width: 100%;
+    max-width: 450px;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    object-fit: cover;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .taller-imagen img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+  }
+  
+  /* Texto */
+  .servicio-lista {
+    flex: 1 1 50%;
+  }
+  
+  .servicio-lista h2,
+  .servicio-lista h3,
+  .servicio-lista h4 {
+    display: block;        /* Cada título en su propia línea */
+    width: 100%;
+    text-align: center;    /* Centrado */
+    margin: 0.3em 0;       /* Espacio reducido entre ellos */
+    line-height: 1.3;      /* Más compacto pero legible */
+  }
+  
+  /* Opcional: pequeños ajustes visuales según jerarquía */
+  .servicio-lista h2 {
+    font-size: 1.2em;
+    letter-spacing: 1px;
+  }
+  
+  .servicio-lista h3 {
+    font-size: 1.3em;
+    color: #7a4040;
+  }
+  
+  .servicio-lista h4 {
+    font-size: 1em;
+    color: #8b4848;
+    font-weight: normal;
+  }
+  .servicio-lista p {
+    margin-bottom: 0.8em;
+  }
+  
+  /* Botón */
+  .btn {
+    display: inline-block;
+    background-color: #663030;
+    color: #fff;
+    padding: 0.8em 1.5em;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s ease;
+  }
+  
+  .btn:hover {
+    background-color: #8b4848;
+  }
+  
+  /* Sección colapsable */
+  .toggle-btn {
+    cursor: pointer;
+    color: #8b4848;
+    transition: color 0.3s ease;
+  }
+  
+  .toggle-btn:hover {
+    color: #b35a5a;
+  }
+  
+  .toggle-content {
+    display: none;
+    margin-top: 1em;
+    border-left: 3px solid #d4af37;
+    padding-left: 1em;
+  }
+  
+  /* 📱 RESPONSIVIDAD */
+  @media (max-width: 1024px) {
+    .taller-contenedor {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  
+    .taller-imagen img {
+      width: 80%;
+      max-width: 400px;
+    }
+  
+    .servicio-lista {
+      width: 100%;
+    }
+  
+    .servicio-lista h2 {
+      font-size: 1.6em;
+    }
+  
+    .servicio-lista h3 {
+      font-size: 1.2em;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .talleres {
+      padding: 2rem 1rem;
+      max-width: 95%;
+    }
+  
+    .taller-imagen img {
+      width: 100%;
+      max-width: 350px;
+    }
+  
+    .servicio-lista h2 {
+      font-size: 1.6em;
+    }
+  
+    .servicio-lista p {
+      font-size: 1em;
+    }
+  
+    .btn {
+      padding: 0.7em 1.2em;
+      font-size: 1em;
+    }
+  }
+/* Contenido oculto de talleres por defecto */
+.toggle-content {
+  display: none;
+  margin-top: 1rem;
+}
+.toggle-content p{
+  text-align: justify;
+  margin-top: 1rem;
+  
+}
+
+.toggle-btn {
+  cursor: pointer;
+  color: #7a2a2a;
+  text-decoration: underline;
+  margin-top: 1rem;
+}
+
+.toggle-btn:hover {
+  color: #a23b3b;
+}
+
+/* RESPONSIVO */
+@media (max-width: 900px) {
+  .Asesoría{
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5rem;
+  }
+}
+
+/* Contenedor del texto */
+.contenido-tienda {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  text-align: center;
+  max-width: 700px;
+  padding: 2rem;
+}
+
+.contenido-tienda h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.contenido-tienda p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  font-family: 'Playfair Display', serif;
+}
+
+/* Responsividad */
+@media (max-width: 1024px) {
+  .fondotienda {
+    width: 90%;
+    min-height: 70vh;
+  }
+
+  .contenido-tienda h2 {
+    font-size: 2rem;
+  }
+
+  .contenido-tienda p {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .fondotienda {
+    width: 95%;
+    min-height: 60vh;
+    padding: 1rem;
+  }
+
+  .contenido-tienda h2 {
+    font-size: 1.6rem;
+  }
+
+  .contenido-tienda p {
+    font-size: 1rem;
+  }
+}
+
+.fondos {
+  position: relative;
+  width: 100%;
+  background: #f3c09a;
+  color: #663030;
+  font-size: 1.1em;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Contenedor general */
+.contenedor-portada {
+  display: flex;
+  width: 100%;
+  align-items: stretch;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* Imagen izquierda */
+.lado-imagen {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background: #fdcba2;
+  margin: 0;
+  padding: 0;
+}
+
+.lado-imagen img {
+  width: 100%;
+  height: auto; /* 🔹 Mantiene proporción y ancho */
+  display: block;
+  object-fit: contain; /* 🔹 Muestra la imagen completa sin recortar */
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.lado-texto {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-style: italic;
+
+  /* ——— IMAGEN DE FONDO ——— */
+  background-image: url('imagenes/fondo\ naranja.jpg');
+  background-size: cover;        /* se adapta sin deformarse */
+  background-position: center;   /* centrada */
+  background-repeat: no-repeat;  /* sin repetirse */
+
+  padding: 0;
+  margin: 0;
+}
+
+.recuadro {
+  background: transparent;
+  border: none;
+  padding: 2rem 3rem;
+  width: 80%;
+}
+
+/* ————— TÍTULO PROFESIONAL ————— */
+.titulo-centrado {
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 2.4rem;
+  color: #5a2d2d; /* tono más profesional que #663030 */
+  letter-spacing: 0.8px;
+  margin-bottom: 1.2rem;
+}
+
+/* Línea elegante bajo el título */
+.titulo-centrado::after {
+  content: "";
+  display: block;
+  width: 70px;
+  height: 3px;
+  background: #ad6a52;
+  margin: 0.6rem auto 0;
+  border-radius: 4px;
+  opacity: 0.85;
+}
+
+/* ————— PÁRRAFOS PROFESIONALES ————— */
+.recuadro p {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.18rem;
+  line-height: 1.65;
+  color: #3d3d3d;
+  letter-spacing: 0.2px;
+  margin-bottom: 1.1rem;
+}
+@media (max-width: 900px) {
+  .contenedor-portada {
+    flex-direction: column;
+  }
+
+  /* Imagen más baja y con margen superior */
+  .lado-imagen {
+    height: 35vh; 
+    margin-top: 3rem; /* 🔹 Margen superior aplicado a la imagen */
+  }
+
+  .lado-texto {
+    height: auto;
+    padding: 2rem 1rem;
+  }
+
+  .recuadro {
+    width: 90%;
+    text-align: center;
+  }
+}
+
+
+.servicios h2{
+  font-size: 2.5em;
+}
+.servicios h3{
+  font-size: 1.6em;
+}
+
+.Asesoría h2, .dossierlista h2, .talleres h2 {
+  font-size: 2.2em;
+}
+
+.servicios img {
+  max-width: 100%;
+  height: auto;
+  border: 3px solid #550000;
+  border-radius: 8px;
+}
+.servicio {
+  text-align: center;
+  max-width: 350px;
+}
+
+.servicio img {
+  width: 100%;
+  border-radius: 8px;
+}
+.Asesoría img{
+  max-width: 60%;
+  height: auto;
+  border: 3px solid #550000;
+  border-radius: 8px;
+} 
+.dossierlista img{
+  max-width: 100%;
+  height: auto;
+  border: 3px solid #550000;
+  border-radius: 8px;
+}
+
+.servicio-lista {
+  display: flex;              /* Pone en fila */
+  justify-content: center;    /* Centra horizontalmente */
+  gap: 30px;                  /* Espacio entre cada opción */
+  flex-wrap: wrap;            /* Para que en pantallas chicas bajen a otra línea */
+}
+
+/* -------- SECCIÓN OPCIONES -------- */
+.Opciones {
+  background-color: #ffffff; /* fondo blanco */
+  text-align: center;
+  padding: 4rem 1rem;
+  color: #663030;
+  width: 80%;           /* ocupa el 80% de la pantalla */
+  margin: 0 auto;       /* centrado horizontal */
+  border-radius: 12px;  /* opcional: bordes suaves */
+  margin-bottom: 30px;
+}
+
+.Opciones h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #5b3a3a;
+}
+
+.descripcion-opciones {
+  font-size: 1.2rem;
+  color: #7a4a4a;
+  margin-bottom: 3rem;
+}
+
+/* -------- CARDS -------- */
+.cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  background: #eac4ad;
+  border: 2px solid #d4b7a1;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 1200px;
+  padding: 1.5rem;
+  gap: 1.5rem;
+  transition: transform 0.25s ease, box-shadow 0.3s ease;
+  flex-wrap: nowrap;
+  box-shadow: 0 4px 10px rgba(102, 48, 48, 0.1);
+  box-sizing: border-box;
+}
+
+.card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 15px rgba(102, 48, 48, 0.2);
+}
+
+.card img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+/* Contenedor del texto */
+.card div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Título fijo a la izquierda */
+.card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+  color: #663030;
+  text-align: left;
+  margin-top: 0;
+}
+
+/* Enlaces dentro del título */
+.card h3 a {
+  color: #663030;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.card h3 a:hover {
+  color: #8b4a4a;
+}
+
+/* Párrafos justificados */
+.card p {
+  font-size: 1rem;
+  color: #4a2a2a;
+  line-height: 1.5;
+  text-align: justify;
+  margin: 0;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .card {
+    flex-direction: column;
+    text-align: center;
+    max-width: 90%;
+  }
+
+  .card img {
+    width: 180px;
+    height: 180px;
+  }
+
+  .card div {
+    align-items: center; /* mantiene el h3 a la izquierda */
+    text-align: justify;
+  }
+
+  .card h3 {
+    text-align: center;
+    width: 100%;
+  }
+}
+/* -------- TESTIMONIOS -------- */
+.testimonios {
+  background: #663030;
+  padding: 40px 20px;
+  color: #fff;
+}
+
+.testimonio {
+  max-width: 900px;
+  margin: 0 auto;
+  font-style: italic;
+}
+
+/* -------- CTA -------- */
+.cta {
+  background: #770101;
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+/* -------- FOOTER -------- */
+.footer {
+  background: #222;
+  color: #ccc;
+  padding: 20px 0;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.social-icons a {
+  color: #ccc;
+  margin: 0 10px;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+.social-icons a:hover {
+  color: #2c0101;
+}
+
+/* -------- RESPONSIVE -------- */
+@media (max-width: 1024px) {
+  .nav-menu {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-header {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  .nav-menu {
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero, .doss {
+    flex-direction: column;
+    min-height: auto;
+    padding: 40px 20px;
+  }
+  .card {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 0.95em;
+  }
+  h1 { font-size: 1.8em; }
+  h2 { font-size: 1.4em; }
+  .btn {
+    padding: 10px 18px;
+    font-size: 0.9em;
+  }
+  .hero img, .doss img {
+    max-width: 100%;
+  }
+}
+
+
+.contenedor-cursos {
+  background: linear-gradient(180deg, #faf7f5, #ffffff);
+  color: #663030;
+  padding: 80px 20px;
+  max-width: 1200px;
+  margin: 60px auto;
+  border-radius: 20px;
+}
+
+.info-cursos {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 60px;
+}
+
+.info-cursos h1 {
+  font-size: 2.6rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.info-cursos p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  opacity: 0.9;
+}
+
+/* GRID */
+.cursos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+}
+
+/* CARD */
+.curso {
+  background: #fff;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+  transition: transform .4s ease, box-shadow .4s ease;
+}
+
+.curso:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.18);
+}
+
+.curso img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.curso .contenido {
+  padding: 25px;
+}
+
+.curso h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.curso p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  opacity: 0.85;
+}
+
+.badge {
+  display: inline-block;
+  background: #f2e6e6;
+  color: #663030;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  margin-bottom: 15px;
+}
+
+/* BOTONES */
+.btn-comprar {
+  width: 100%;
+  background: #663030;
+  color: #fff;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background .3s ease;
+}
+
+.btn-comprar:hover {
+  background: #8a4a4a;
+}
+
+.btn-secundario {
+  margin-top: 10px;
+  background: transparent;
+  border: 2px solid #663030;
+  color: #663030;
+}
+
+
+.pagos {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+/* Botón MercadoPago */
+.btn-mercadopago {
+  background-color: #FFC439;
+  color: #000000;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-mercadopago:hover {
+  background-color:  #FFC439;
+}
+
+/* Botón PayPal */
+.btn-paypal {
+  background-color: #007BB5;
+  color: #ffffff;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1em;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.btn-paypal:hover {
+  background-color: #FFB100;
+}
+/* Animación al aparecer el botón "Ir al curso" */
+@keyframes aparecer {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.videos {
+  background: #fff;
+  color: #663030;
+  font-size: 1.1em;
+  margin: 20px auto;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  max-width: 80%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.videos h2 {
+  font-size: 1.8em;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.videos p {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.videos .btn{
+  display: inline-block;
+  background: #663030;
+  color: #fff;
+  padding: 12px 25px;
+  border-radius: 5px;
+  max-width: 400px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
+  
+}
+
+/* Contenedor de cada video + descripción */
+.video-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+}
+
+
+/* Video */
+.video-wrapper {
+  flex: 1 1 45%;
+  position: relative;
+  padding-top: 25.25%; /* Mantiene proporción 16:9 */
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Texto al costado */
+.video-text {
+  flex: 1 1 45%;
+}
+
+.video-text h3 {
+  margin-bottom: 0.5rem;
+}
+
+.video-text p {
+  line-height: 1.5;
+}
+
+/* 📱 RESPONSIVO: video arriba, texto abajo */
+@media (max-width: 1024px) {
+  .video-item {
+    flex-direction: column; /* apila video y texto */
+    align-items: center;
+    gap: 15px;
+  }
+
+  .video-wrapper {
+    flex: 1 1 100%;
+    width: 100%;
+    padding-top: 56.25%; /* proporción 16:9 estándar */
+  }
+
+  .video-text {
+    flex: 1 1 100%;
+    width: 100%;
+    text-align: center; /* centra texto debajo */
+  }
+
+  .video-text h3 {
+    font-size: 1.3em;
+  }
+
+  .video-text p {
+    font-size: 1.1em;
+    max-width: 90%;
+    margin: 0 auto;
+  }
+}
+
+/* 📱 Ajuste extra para pantallas muy pequeñas */
+@media (max-width: 600px) {
+  .videos {
+    padding: 1.2rem;
+    max-width: 90%;
+  }
+
+  .video-wrapper {
+    padding-top: 65%; /* un poco más alto para celulares */
+  }
+
+  .video-text p {
+    font-size: 1em;
+    line-height: 1.6;
+  }
+}
+.galeria {
+  background: #fff;
+  color: #663030;
+  font-size: 1.1em;
+  margin: 20px auto;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  max-width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* Imágenes */
+.galeria img {
+  width: 100%;
+  max-width: 1200px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  object-fit: cover;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.galeria img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+/* Videos */
+.video-container {
+  width: 100%;
+  max-width: 1200px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.video-container video {
+  width: 100%;
+  height: auto; /* Mantiene altura real según resolución */
+  object-fit: cover;
+  border: none;
+}
+
+/* Para pantallas grandes (>1024px) */
+@media (min-width: 1025px) {
+  .video-container video {
+    height: 600px; /* Ajustá según la altura real de tu video */
+    width: auto;   /* Mantiene proporción original */
+  }
+}
+
+/* Responsividad */
+@media (max-width: 1024px) {
+  .galeria {
+    max-width: 90%;
+    padding: 1.5rem;
+  }
+
+  .video-container video {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .galeria {
+    padding: 1rem;
+    gap: 1.5rem;
+  }
+
+  .galeria img,
+  .video-container {
+    border-radius: 8px;
+  }
+}
+
+
+
+/* ————— CONTENEDOR DEL COLLAGE ————— */
+.collage-polaroid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  padding: 2rem;
+  place-items: center;
+}
+
+/* ————— TARJETA POLAROID (con flip) ————— */
+.foto {
+  width: 100%;
+  max-width: 420px;      /* antes 380px */
+  aspect-ratio: 2 / 3;
+  perspective: 1600px;
+  border-radius: 12px;
+  margin: 0 auto;
+}
+
+/* Inner que rota */
+.flip-card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform .8s ease;
+}
+
+.foto:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* ————— CARAS ————— */
+.flip-front,
+.flip-back {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  backface-visibility: hidden;
+  padding: 34px 10px 34px 10px; /* antes 15px 15px 40px 15px */
+
+  /* LOOK POLAROID */
+  background: #fff;
+  
+  box-shadow:
+    0 6px 15px rgba(0,0,0,0.25),
+    0 3px 8px rgba(0,0,0,0.15);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flip-front img,
+.flip-back img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+  transform: scale(1.05);   /* 🔥 agranda sutilmente */
+}
+
+/* Dorso */
+.flip-back {
+  transform: rotateY(180deg);
+}
+
+
+
+/* ————— RESPONSIVE ————— */
+@media (max-width:1200px){
+  .collage-polaroid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width:768px){
+  .collage-polaroid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .collage-polaroid {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+
+  .foto {
+    max-width: 100%;
+  }
+
+  .flip-front,
+  .flip-back {
+    padding: 34px 10px 34px 10px;
+  }
+}
+.feng-form {
+  max-width: 720px;
+  width: 100%;
+  margin: 2rem auto;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  background: rgba(255, 255, 255, 0.95);
+  color: #663030;
+  border-radius: 22px;
+  font-family: system-ui, sans-serif;
+}
+
+.feng-form h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.feng-form h3 {
+  margin-top: 2rem;
+  font-size: 1.05rem;
+}
+
+.feng-form label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: 600;
+}
+
+.feng-form input,
+.feng-form select,
+.feng-form textarea {
+  width: 100%;
+  padding: 0.75rem;
+  margin-top: 0.4rem;
+  border-radius: 14px;
+  border: 1px solid #cbb3b3;
+  font-size: 1rem;
+}
+
+.feng-form textarea {
+  resize: vertical;
+}
+
+.feng-form button {
+  width: 100%;
+  margin-top: 2rem;
+  padding: 1rem;
+  border: none;
+  border-radius: 18px;
+  background: #663030;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.feng-form button:hover {
+  background: #4f2323;
+}
+
+.privacidad {
+  font-size: 0.85rem;
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+/* Mobile fine tuning */
+@media (max-width: 480px) {
+  .feng-form {
+    border-radius: 16px;
+  }
+}
+.mensaje-gracias {
+  display: none;
+  max-width: 600px;
+  margin: 3rem auto;
+  padding: 2.5rem;
+  background: rgba(255, 255, 255, 0.95);
+  color: #663030;
+  border-radius: 22px;
+  text-align: center;
+  font-family: system-ui, sans-serif;
+}
+
+.mensaje-gracias h2 {
+  margin-bottom: 1rem;
+}
+
+.mensaje-gracias p {
+  line-height: 1.6;
+}
+
+.mensaje-gracias button {
+  margin-top: 2rem;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 18px;
+  background: #663030;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.mensaje-gracias button:hover {
+  background: #4f2323;
+}
+
+/* MODAL CURSO MATE */
+.modal-mate {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-mate-content {
+  background: #fff;
+  width: 90%;
+  max-width: 600px;
+  padding: 30px;
+  border-radius: 12px;
+  position: relative;
+  text-align: center;
+}
+
+.close-mate {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+/* CARRUSEL */
+.carousel-mate {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.slides-mate {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+}
+
+.slide-mate {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: none;
+  border-radius: 10px;
+}
+
+.active-mate {
+  display: block;
+}
+
+.prev-mate, .next-mate {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.prev-mate { left: 10px; }
+.next-mate { right: 10px; }
+
+.texto-mate textarea {
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  resize: none;
+  margin-bottom: 20px;
+}
+.input-mate {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.texto-mate textarea {
+  width: 100%;
+  height: 120px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  resize: none;
+  margin-bottom: 20px;
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.6);
+}
+
+.modal-content {
+  background: white;
+  padding: 30px;
+  width: 90%;
+  max-width: 400px;
+  margin: 10% auto;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.modal-content button {
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+

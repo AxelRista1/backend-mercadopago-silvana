@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pago exitoso</title>
+</head>
+<body>
+  <h2>Pago aprobado ✅</h2>
+  <p>Estamos enviando tu archivo...</p>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const paymentId = params.get("payment_id");
+
+    if (paymentId) {
+      fetch(`https://backend-mercadopago-silvana.onrender.com/verificar-pago/${paymentId}`)
+        .then(res => res.json())
+        .then(data => {
+          if (data.enviado) {
+            document.body.innerHTML = "<h2>¡Archivo enviado correctamente a tu correo! 📩</h2>";
+          } else {
+            document.body.innerHTML = "<h2>Error al enviar el archivo.</h2>";
+          }
+        });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PÁGINA SILVANA</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script>
+    (function(d) {
+      var config = {
+        kitId: 'pnz3mgc',
+        scriptTimeout: 3000,
+        async: true
+      },
+      h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+    })(document);
+  </script>
+</head>
+<body>
+  <header class="main-header">
+    <div class="logo">
+      <img src="imagenes/logo silvana.png" alt="Logo">
+     
+    </div>
+  
+    <!-- Flecha principal para desplegar el menú completo en móvil -->
+    <div class="menu-arrow">☰</div>
+  
+    <nav>
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+  
+        <li class="dropdown">
+          <a href="asesoria.html">Asesoría FS</a>
+          <ul class="submenu">
+            <li><a href="asesoria.html#Arquitectura">Arquitectura</a></li>
+            <li><a href="asesoria.html#hogar">Hogar</a></li>
+            <li><a href="asesoria.html#Oficinas">Oficinas y locales</a></li>
+            <li><a href="asesoria.html#Paisajismo">Jardines</a></li>
+          </ul>
+        </li>
+  
+        <li><a href="ceremonias.html">Ceremonias
+        </a></li>
+  
+        <li class="dropdown">
+          <a href="talleres.html">Talleres</a>
+          <ul class="submenu">
+            <li><a href="talleres.html#cursoTé">Curso Té</a></li>
+            <li><a href="talleres.html#cursoyerva">Curso Yerba Mate</a></li>
+            <li><a href="talleres.html#Cursofengshui">Curso Feng Shui y té</a></li>
+          </ul>
+        </li>
+  
+        <li class="dropdown">
+          <a href="degustaciones.html">Experiencias</a>
+          
+        </li>
+  
+        <li class="dropdown">
+          <a href="recetas.html">Recetas</a>
+          <!-- 
+          <ul class="submenu">
+            <li><a href="recetas.html#con-te">Con Té</a></li>
+            <li><a href="recetas.html#con-yerva">Con Yerba Mate</a></li>
+            <li><a href="recetas.html#con-cafe">Con Café</a></li>
+            <li><a href="recetas.html#con-otros">Otras infusiones</a></li>
+          </ul>-->
+        </li>
+  
+        <li><a href="tienda.html">Tienda</a></li>
+      </ul>
+    </nav>
+  </header>
+  <section class="fondos">
+    <div class="contenedor-portada">
+      <!-- Lado izquierdo: imagen -->
+      <div class="lado-imagen">
+        <img src="imagenes/Placa talleres 2.png" alt="Asesoramiento Feng Shui">
+      </div>
+  
+      <!-- Lado derecho: recuadro de texto -->
+      <div class="lado-texto">
+        <div class="recuadro">
+          
+          <p>El té me enseñó a escuchar el silencio.</p>
+          <p>El mate, a compartir el alma.</p>
+          <p>El Feng Shui, a dejar fluir la energía.</p>
+          <p>Te invito a transitar juntos estos tres caminos hacia la armonía, para que descubras el poder de
+            los pequeños rituales que cambiaran tu vida.</p>
+         
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="talleres" id="servicios">
+    <div class="taller-contenedor" id="cursoTé">
+      <div class="taller-imagen">
+        <img src="imagenes/yerva.jpg" alt="Sommelier de Té">
+      </div>
+  
+      <div class="servicio-lista">
+        <h3>EN BUSCA DEL SOMMELIER</h3>
+        
+        
+        <p><strong>¡Bienvenido a la experiencia de formarte en el fascinante mundo del té!</strong></p>
+          <p>Nuestros cursos de nivel básico están diseñados especialmente para que puedas comenzar desde
+            cero: <strong>no necesitas conocimientos previos</strong>. <br> 
+            Aquí, el té te invita a entrar en contacto contigo y a
+            descubrir la belleza de escuchar el silencio.</p>
+            <h3>¿Cómo es la formación?</h3>
+            <p>Aprenderás a tu propio ritmo, con 4 módulos y 20 clases en total.
+              Al finalizar cada módulo, realizarás una autoevaluación “multiple choice” para consolidar lo
+              aprendido.</p>
+              <p>Recibirás material exclusivo en PDF que te acompañará durante todo el curso.
+                Al finalizar, te otorgamos un <strong>certificado de participación</strong>que reconoce tu dedicación. <br>
+                <strong>Modalidad 100% online</strong>: accedes desde donde quieras y a la hora que prefieras.</p>
+
+        <!-- Botón de toggle -->
+        <p class="toggle-btn"><strong>Más información</strong></p>
+  
+        <!-- Contenido oculto -->
+        <div class="toggle-content">
+          <p><strong>Temario:</strong><br>
+            <strong>Módulo 1</strong><br>
+            Clase 1: Historia del té<br>
+            Clase 2: La planta de té<br>
+            Clase 3: Países productores<br>
+            Clase 4: Variedades de tés puros<br>
+            Clase 5: Blends famosos<br><br>
+            <strong>Módulo 2</strong><br>
+            Clase 6: Cómo preparar un té correctamente<br>
+            Clase 7: Cómo catar un té<br>
+            Clase 8: Rueda de aromas<br>
+            Clase 9: Paladares y perfiles de té<br>
+            Clase 10: Maridar con té<br><br>
+            <strong>Módulo 3</strong><br>
+            Clase 11: Concepto de protocolo y ceremonial<br>
+            Clase 12: Protocolo francés, americano y ruso<br>
+            Clase 13: Claves ser un buen anfitrión<br>
+            Clase 14: Qué vajilla utilizar en cada servicio<br>
+            Clase 15: Tipología de teteras<br><br>
+            <strong>Módulo 4</strong><br>
+            Clase 16: Infusiones y tisanas<br>
+            Clase 17: Secretos del ice tea<br>
+            Clase 18: Bebidas &amp; cocteles<br>
+            Clase 19: Recetas con  tés<br>
+            Clase 20: Cómo organizar tu evento de té<br>
+          </p>
+        </div>
+        <a href="tienda.html" class="btn">Comprar ahora</a>
+      </div>
+    </div>
+  </section>
+  <section class="talleres" id="servicios">
+    <div class="taller-contenedor" id="cursoyerva">
+  
+      <!-- Imagen del curso -->
+      <div class="taller-imagen">
+        <img src="imagenes/nueva mate.jpg" alt="Taller de Yerba Mate">
+      </div>
+  
+      <!-- Información del curso -->
+      <div class="servicio-lista">
+        <h3>Taller de Yerba Mate</h3>
+        
+        <p>¡Descubre el auténtico ritual argentino y conviértete en un especialista del mate!
+          Nuestro curso online está pensado para que todos puedan iniciarse: <strong>no necesitas conocimientos
+          previos</strong>.</p>
+          <p>MI PRIMER MATE logra la expertise en el arte del mate, desde sus orígenes hasta los secretos para
+            prepararlo y compartirlo en una experiencia única.</p>
+            <h3>¿Cómo es la formación?</h3>
+            <p>Formación estructurada en 10 clases, a tu ritmo y desde donde estés. <BR>
+              Material de apoyo en PDF para acompañar tu aprendizaje.<BR>
+              Material audiovisual<BR>
+              Certificado de participación al completar el curso.<BR>
+              <strong>Modalidad 100% online:</strong> accede desde cualquier lugar, a cualquier hora.</p><BR>
+              <p><strong>CONVIERTETE EN UN ESPECIALISTA del MATE ARGENTINO</strong></p>
+  
+        <!-- Botón de toggle para mostrar contenido -->
+        <p class="toggle-btn"><strong>Más información</strong></p>
+  
+        <!-- Contenido oculto -->
+        <div class="toggle-content">
+          <p><strong>Temario:</strong><br>
+            
+            Clase 1: Historia de la YM. Duración.2:55"<br>
+            Clase 2: Botánica de la YM. Duración: 2:46"<br>
+            Clase 3 y 4: Zonas de cultivo Y Producción. Duración: 1:48"<br>
+            Clase 5: Componentes de la YM. Duración 1:41" <br>
+            Clase 6: 4 Pasos para Preparar el mate. Duración 0:54"<br>
+            Clase 7: Tipos de mate. Duración 5:04" <br>
+            Clase 8: cómo se "cura" un mate. Duración 1:45"<br>
+            Clase 9: El ritual del mate. Duración 3:01" <br>
+            Clase 10: Meditación. Duración: 5:00" <br><br>
+          </p>
+        </div>
+        
+  </div>
+        <!-- Modalidad y botón -->
+        <a href="tienda.html" class="btn">Comprar ahora</a>
+      </div>
+  
+    </div>
+  </section>
+  <section class="talleres" id="servicios">
+    <div class="taller-contenedor" id="Cursofengshui">
+  
+      <!-- Imagen del curso -->
+      <div class="taller-imagen">
+        <img src="imagenes/brujula.jpeg" alt="Curso Feng Shui y Té">
+      </div>
+  
+      <!-- Información del curso -->
+      <div class="servicio-lista">
+        <h3>Curso Feng Shui y Té</h3>
+        <h3>Energía, estética y té con propósito.</h3>
+        <p>Vive la experiencia más completa y de profunda transformación personal: <BR> 
+          el curso<strong> Feng Shui &amp; Té – Método Schenk.</strong><br>
+          Una invitación a descubrir la sabiduría ancestral integrando el arte del Feng Shui y el Tao del té
+            para crear armonía, disfrute y plenitud en tu vida y tus espacios.</p>
+            <p>Descubre cómo tu energía y tu
+              entorno están conectados, y cómo el té puede ser tu aliado en este camino de autoconocimiento.
+              Aprende a reconocer que tu hogar es una extensión de tu alma. Integra principios del Feng Shui a
+              tu decoración y crea ambientes que reflejen tu verdadera esencia. <br>
+              Educa tu paladar y despierta tus sentidos a través del análisis sensorial, maridajes y recetas
+              exclusivas con té.</p>
+              <p>Este curso es un blend único, creado bajo el exclusivo método Schenk. No es solo aprendizaje. <br> 
+                Es transformación, es disfrute, es una nueva forma de vivir y crear espacios que te representen y te
+                inspiren día a día. <br>
+                Atrévete a reinventar tu vida y tu hogar en cada taza y en cada rincón.
+              </p>
+
+  
+        <!-- Botón toggle -->
+        <p class="toggle-btn"><strong>Más información</strong></p>
+  
+        <!-- Contenido oculto -->
+        <div class="toggle-content">
+  
+          <h3>MÓDULO 1 · Introducción a los dos mundos.</h3>
+          <p><em>“La sabiduría ancestral”</em></p>
+          <p>☯ Introducción al Feng Shui y al Tao del té</p>
+          <p>
+            Clase 1 - ¿Qué es el Feng Shui?<br>
+            Clase 2 - Historia del Feng Shui.<br>
+            Clase 3 - El camino del té.<br>
+            Clase 4 - Teoría de los 5 Elementos (aplicada a ambos universos).<br>
+            Clase 5 - El Chi, el Yin y Yang.<br>
+            Clase 6 - Animales celestiales.
+          </p>
+  
+          <h3>MÓDULO 2 · Tu energía y tu espacio</h3>
+          <p><em>“Conocerte para habitarte en paz.”</em></p>
+          <p>☯ Feng Shui personal y decoración emocional.</p>
+          <p>
+            Clase 7 - Tu número Kua, ¿cómo usarlo?<br>
+            Clase 8 - La boca del Chi y el Ming Tang.<br>
+            Clase 9 - La planta del té y sus variedades.<br>
+            Clase 10 - Cómo preparar correctamente un té: agua, temperatura, utensillos.<br>
+            Clase 11 - Técnicas de infusión en distintas culturas.<br>
+            Clase 12 - Armonización de las casas de té: materiales, colores y formas.
+          </p>
+  
+          <h3>MÓDULO 3 · Diseño energético y estilo de vida</h3>
+          <p><em>“Tu hogar una extensión de tu alma.”</em></p>
+          <p>☯ Aplicación del Feng Shui en espacios claves y servicio de té.</p>
+          <p>
+            Clase 13 - Cocina de los 5 elementos.<br>
+            Clase 14 - El té en la vida diaria.<br>
+            Clase 15 - Decorar con intención el rincón de té: símbolos, altares y puntos focales.<br>
+            Clase 16 - Ceremonial, etiqueta y protocolo en el servicio de té.<br>
+            Clase 17 - Tipología de teteras.<br>
+            Clase 18 - Vajilla sugerida según la ocasión.
+          </p>
+  
+          <h3>MÓDULO 4 · Activación sensorial con té y los 5 elementos del Feng Shui</h3>
+          <p><em>“Té y las emociones: reconexión con uno mismo.”</em></p>
+          <p>
+            Clase 19 - Las 5 energías del té según su sabor.<br>
+            Clase 20 - Los 5 elementos y sus emociones.<br>
+            Clase 21 - Cata sensorial: vista, olfato, gusto, tacto y oído.<br>
+            Clase 22 - Pasos para catar como un sommelier.<br>
+            Clase 23 - Uso del té en la medicina tradicional china (MTC).<br>
+            Clase 24 - Blend emocional: emociones + infusiones + momentos del día.
+          </p>
+  
+          <h3>MÓDULO 5 · Neurogastronomía, maridajes y recetas</h3>
+          <p><em>“Educá tu paladar y despertá tus sentidos.”</em></p>
+          <p>☯ Análisis sensorial y arte del maridaje con té.</p>
+          <p>
+            Clase 25 - Neurociencia aplicada al té. Descriptores aromáticos y emociones.<br>
+            Clase 26 - Maridaje con té: perfiles, armonías y momentos.<br>
+            Clase 27 - Blends famosos y de autor.<br>
+            Clase 28 - Infusiones y tisanas.<br>
+            Clase 29 - Recetas con infusiones.<br>
+            Clase 30 - Té frío, bebidas mixtas y mixología consciente.
+          </p>
+  
+          <h3>MÓDULO 6 · Paisajismo emocional y jardines del alma</h3>
+          <p><em>“El exterior también vibra.”</em></p>
+          <p>☯ La importancia del agua en el Feng Shui, el té en el jardín, equilibrio y creación de experiencias.</p>
+          <p>
+            Clase 31 - Paisajismo con Feng Shui: principios y elementos.<br>
+            Clase 32 - El agua y su importancia en el mundo del té.<br>
+            Clase 33 - Fuentes de agua, piscinas y estanques como activadores.<br>
+            Clase 34 - El rincón del té en el jardín: diseño y función.<br>
+            Clase 35 - Historia de los jardines sagrados.<br>
+            Clase 36 - Jardines zen.
+          </p>
+  
+        </div>
+  
+        <a href="tienda.html" class="btn">Comprar ahora</a>
+      </div>
+  
+    </div>
+  </section>
+  <section class="talleres" id="servicios">
+    <div class="taller-contenedor" id="Cursofengshui">
+  
+      <!-- Imagen del curso -->
+      <div class="taller-imagen">
+        <img src="imagenes/yerva presencial.png" alt="Curso presencial">
+      </div>
+  
+      <!-- Información del curso -->
+      <div class="servicio-lista">
+        <h3>Curso presencial</h3>
+        <p><strong>Inscríbete hoy y vive la cultura del mate desde adentro!</strong></p>
+
+          <P>Sumérgete en una experiencia única y transformadora con nuestra <STRong>**Ceremony Yerba Mate
+            Experience** presencial.</STRong></P>
+            <h3>¿Cómo es la formación?</h3>
+            <P>Te recibimos con un exquisito cóctel de yerba mate para abrir los sentidos y celebrar el encuentro.
+              Disfrutarás de una **degustación guiada de yerbas argentinas**, viajando por los matices y
+              aromas de esta tradición emblemática. Te sorprenderemos con un maridaje cuidadosamente
+              seleccionado, adaptado a la temporada, que realza los sabores auténticos del mate.</P>
+              <P>El corazón de esta ceremonia es el espacio de **meditación y ritual de iniciación al mate**, donde
+                conectarás con la esencia de esta bebida ancestral y descubrirás cómo el mate puede convertirse
+                en tu propio momento de pausa, encuentro y renovación.</P>
+                <P>Vive, siente y celebra el ritual del mate de una forma nunca antes experimentada.
+                  **Reserva tu lugar y déjate guiar por la magia y la cultura del mate argentino!**</P>
+                  <p>Para un maximo de 6 personas</p>
+
+        <a href="tienda.html" class="btn">COMPRAR EXPERIENCIA YERBA MATE</a>
+      </div>
+  
+    </div>
+  </section>
+  
+  
+ 
+  <footer class="footer" id="footer">
+    <div class="footer-content">
+      <p>&copy; 2026 | Axel Rista | Diseño Web</p>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/silvana.schenk" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/SilvanaSchenkSommelier" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://wa.me/5493496508751" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://www.youtube.com/@SilvanaSchenk" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.linkedin.com/in/silvana-schenk-68116267" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+  </footer>
+  <script>
+    const menuArrow = document.querySelector('.menu-arrow');
+    const navMenu = document.querySelector('.nav-menu');
+  
+    // Mostrar menú completo en móvil
+    menuArrow.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+      menuArrow.style.transform = navMenu.classList.contains('active')
+        ? 'rotate(180deg)'
+        : 'rotate(0)';
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const toggles = document.querySelectorAll(".toggle-btn");
+  
+      toggles.forEach(btn => {
+        btn.addEventListener("click", function() {
+          const content = this.nextElementSibling;
+          if(content.style.display === "block") {
+            content.style.display = "none";
+          } else {
+            content.style.display = "block";
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

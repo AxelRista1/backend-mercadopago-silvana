@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PÁGINA SILVANA</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="https://sdk.mercadopago.com/js/v2"></script>
+</head>
+<body>
+  <header class="main-header">
+    <div class="logo">
+      <img src="imagenes/logo silvana.png" alt="Logo">
+    </div>
+    <div class="menu-arrow">☰</div>
+    <nav>
+      <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li class="dropdown">
+          <a href="asesoria.html">Asesoría FS</a>
+          <ul class="submenu">
+            <li><a href="asesoria.html#Arquitectura">Arquitectura</a></li>
+            <li><a href="asesoria.html#hogar">Hogar</a></li>
+            <li><a href="asesoria.html#Oficinas">Oficinas y locales</a></li>
+            <li><a href="asesoria.html#Paisajismo">Jardines</a></li>
+          </ul>
+        </li>
+        <li><a href="ceremonias.html">Ceremonias</a></li>
+        <li class="dropdown">
+          <a href="talleres.html">Talleres</a>
+          <ul class="submenu">
+            <li><a href="talleres.html#cursoTé">Curso Té</a></li>
+            <li><a href="talleres.html#cursoyerva">Curso Yerba Mate</a></li>
+            <li><a href="talleres.html#Cursofengshui">Curso Feng Shui y té</a></li>
+          </ul>
+        </li>
+        <li><a href="recetas.html">Recetas</a></li>
+        <li><a href="tienda.html">Tienda</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="contenedor-cursos">
+    <div class="info-cursos">
+      <h1>Nuestros cursos especiales</h1>
+      <p>Experiencias únicas diseñadas para nutrir tu bienestar, ampliar tu conocimiento y ayudarte a transformar tu entorno de forma consciente.</p>
+    </div>
+
+    <div class="cursos-grid">
+
+      <!-- CURSO TE -->
+<div class="curso">
+  <div class="curso-img"><img src="imagenes/yerva.jpg" alt="Curso de Té"></div>
+  <div class="contenido">
+    <span class="badge">Incluye PDF</span>
+    <h2>Curso de Té</h2>
+    <p>En busca del sommelier</p>
+    <button class="btn btn-comprar" onclick="abrirModal('te')">
+      Comprar con Mercado Pago
+    </button>
+  </div>
+</div>
+
+<!-- CURSO MATE -->
+<div class="curso">
+  <div class="curso-img"><img src="imagenes/nueva mate.jpg" alt="Curso de Yerba Mate"></div>
+  <div class="contenido">
+    <span class="badge">OFERTA $Arg.35.635</span>
+    <h2>Curso mi Primer Mate</h2>
+    <p>Conviértete en un especialista del mate argentino.</p>
+    <button class="btn btn-comprar" onclick="abrirModal('mate')">
+      Comprar con Mercado Pago
+    </button>
+  </div>
+</div>
+
+<!-- CURSO FENG -->
+<div class="curso">
+  <div class="curso-img"><img src="imagenes/brujula.jpeg" alt="Curso de Feng Shui"></div>
+  <div class="contenido">
+    <span class="badge">Incluye PDF</span>
+    <h2>Curso Feng Shui & Té</h2>
+    <p>Energía, estética y té con propósito.</p>
+    <button class="btn btn-comprar" onclick="abrirModal('feng')">
+      Comprar con Mercado Pago
+    </button>
+  </div>
+</div>
+
+      <!-- CURSO PRESENCIAL MATE -->
+      <div class="curso">
+        <div class="curso-img"><img src="imagenes/yerva presencial.png" alt="Curso de Yerba Mate"></div>
+        <div class="contenido">
+          <span class="badge">$Arg.71.000</span>
+          <h2>Experiencia yerva mate</h2>
+          <p>Inscríbete hoy y vive la cultura del mate desde adentro!</p>
+          <button class="btn btn-comprar" onclick="abrirModalMate()">Agendar mi Experiencia</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <div id="modalCompra" class="modal">
+  <div class="modal-content">
+    <span class="cerrar" onclick="cerrarModal()">&times;</span>
+    <h2>Finalizar compra</h2>
+
+    <input type="text" id="nombre" placeholder="Tu nombre completo" required>
+    <input type="email" id="email" placeholder="Tu correo electrónico" required>
+
+    <button onclick="confirmarCompra()">Continuar al pago</button>
+  </div>
+</div>
+  
+  <!-- MODAL CURSO MATE -->
+<div id="modalCursoMate" class="modal-mate">
+  <div class="modal-mate-content">
+    
+    <span class="close-mate" onclick="cerrarModalMate()">&times;</span>
+
+    <!-- Carrusel -->
+    <div class="carousel-mate">
+      <button class="prev-mate" onclick="cambiarSlideMate(-1)">❮</button>
+      
+      <div class="slides-mate">
+        <img src="imagenes/nueva mate.jpg" class="slide-mate active-mate">
+        <img src="imagenes/mate2.jpg" class="slide-mate">
+        <img src="imagenes/mate3.jpg" class="slide-mate">
+      </div>
+
+      <button class="next-mate" onclick="cambiarSlideMate(1)">❯</button>
+    </div>
+
+    <div class="texto-mate">
+
+  <h3>Completá tus datos</h3>
+
+  <input type="text" id="nombreMate" placeholder="Tu nombre completo" required class="input-mate"/>
+
+  <input type="email" id="emailMateModal" placeholder="Tu correo electrónico" required class="input-mate"/>
+
+  <textarea 
+    id="mensajeMate" 
+    placeholder="Por favor indicá:
+- Fecha y hora elegida
+- Forma de pago preferida
+- Ciudad o país
+- Cualquier consulta adicional"
+  ></textarea>
+
+</div>
+
+<button class="btn btn-comprar" onclick="enviarMailMate()">
+  Enviar solicitud
+</button>
+</div>
+
+  <footer class="footer" id="footer">
+    <div class="footer-content">
+      <p>&copy; 2026 | Axel Rista | Diseño Web</p>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/silvana.schenk" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/SilvanaSchenkSommelier" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://wa.me/5493496508751" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://www.youtube.com/@SilvanaSchenk" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.linkedin.com/in/silvana-schenk-68116267" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const menuArrow = document.querySelector('.menu-arrow');
+const navMenu = document.querySelector('.nav-menu');
+
+if(menuArrow){
+  menuArrow.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+    menuArrow.style.transform = navMenu.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0)';
+  });
+}
+
+let cursoSeleccionado = "";
+
+function abrirModal(curso) {
+  cursoSeleccionado = curso;
+  document.getElementById("modalCompra").style.display = "block";
+}
+
+function cerrarModal() {
+  document.getElementById("modalCompra").style.display = "none";
+}
+
+// ⚠️ PONÉ ACA TU PUBLIC KEY (NO EL ACCESS TOKEN)
+const mp = new MercadoPago("APP_USR-ec0bd9d6-31a5-4167-bfc4-e5cb97f6b78f");
+
+function confirmarCompra() {
+  const nombre = document.getElementById("nombre").value;
+  const email = document.getElementById("email").value;
+
+  if (!nombre || !email.includes("@")) {
+    alert("Por favor completa los datos correctamente");
+    return;
+  }
+
+  fetch("https://backend-mercadopago-silvana.onrender.com/crear-preferencia", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      curso: cursoSeleccionado,
+      nombre,
+      email
+    })
+  })
+  .then(res => res.json())
+  .then(data => {
+    mp.checkout({
+      preference: { id: data.id },
+      autoOpen: true
+    });
+  })
+  .catch(err => console.error(err));
+}
+</script>
+  <script>
+let slideActualMate = 0;
+
+function abrirModalMate() {
+  document.getElementById("modalCursoMate").style.display = "flex";
+}
+
+function cerrarModalMate() {
+  document.getElementById("modalCursoMate").style.display = "none";
+}
+
+function cambiarSlideMate(direccion) {
+  const slidesMate = document.querySelectorAll(".slide-mate");
+
+  slidesMate[slideActualMate].classList.remove("active-mate");
+
+  slideActualMate += direccion;
+
+  if (slideActualMate >= slidesMate.length) slideActualMate = 0;
+  if (slideActualMate < 0) slideActualMate = slidesMate.length - 1;
+
+  slidesMate[slideActualMate].classList.add("active-mate");
+}
+
+function continuarCompraMate() {
+  const mensaje = document.getElementById("mensajeMate").value;
+  console.log("Mensaje curso mate:", mensaje);
+
+  alert("Redirigiendo a Mercado Pago...");
+}
+</script>
+<script>
+function enviarMailMate() {
+
+  const nombre = document.getElementById("nombreMate").value;
+  const email = document.getElementById("emailMateModal").value;
+  const mensaje = document.getElementById("mensajeMate").value;
+
+  if (!nombre || !email) {
+    alert("Por favor completá nombre y correo electrónico.");
+    return;
+  }
+
+  const asunto = "Solicitud Curso Mi Primer Mate";
+
+  const cuerpo = `
+Nueva solicitud del Curso Mi Primer Mate
+
+Nombre: ${nombre}
+Email: ${email}
+
+Detalles:
+${mensaje}
+  `;
+
+  const gmailURL = `https://mail.google.com/mail/?view=cm&fs=1&to=silvanasommelierweb@gmail.com&su=${encodeURIComponent(asunto)}&body=${encodeURIComponent(cuerpo)}`;
+
+  // Abrir en nueva pestaña
+  window.open(gmailURL, "_blank");
+}
+</script>
+</body>
+</html>
