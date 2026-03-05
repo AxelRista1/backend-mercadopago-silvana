@@ -2,8 +2,6 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import { MercadoPagoConfig, Preference, Payment } from "mercadopago";
-import nodemailer from "nodemailer";
-import path from "path";
 
 dotenv.config();
 
@@ -12,7 +10,7 @@ app.use(cors());
 app.use(express.json());
 
 const PORT = process.env.PORT || 3000;
-const FRONT_URL = process.env.FRONT_URL; // ejemplo: https://tu-sitio.netlify.app
+const FRONT_URL = process.env.FRONT_URL;
 
 /* MERCADO PAGO */
 const mpClient = new MercadoPagoConfig({
@@ -25,28 +23,6 @@ const cursos = {
   mate: { titulo: "Curso de Yerba Mate", precio: 4500, pdf: "pdf/curso-mate.pdf" },
   feng: { titulo: "Curso de Feng Shui", precio: 6000, pdf: "pdf/curso-feng.pdf" }
 };
-
-/* NODEMAILER */
-const transporter = nodemailer.createTransport({
-  service: "gmail",
-  auth: {
-    user: process.env.GMAIL_USER,
-    pass: process.env.GMAIL_PASS
-  }
-});
-
-async function enviarPDF(email, archivoPDF) {
-  await transporter.sendMail({
-    from: process.env.GMAIL_USER,
-    to: email,
-    subject: "Tu curso comprado",
-    text: "¡Gracias por tu compra! Adjuntamos tu archivo.",
-    attachments: [
-      { filename: path.basename(archivoPDF), path: archivoPDF }
-    ]
-  });
-  console.log(`PDF enviado a ${email}`);
-}
 
 /* ENDPOINT: crear preferencia de pago */
 app.post("/crear-preferencia", async (req, res) => {
@@ -95,7 +71,7 @@ app.post("/crear-preferencia", async (req, res) => {
   }
 });
 
-/* ENDPOINT: verificar pago y enviar PDF */
+/* ENDPOINT: verificar pago */
 app.get("/verificar-pago/:paymentId", async (req, res) => {
   try {
     const paymentId = req.params.paymentId;
@@ -104,21 +80,17 @@ app.get("/verificar-pago/:paymentId", async (req, res) => {
     const payment = await paymentClient.get({ id: paymentId });
 
     if (payment.status === "approved") {
-
-      const { curso, email } = payment.metadata;
-
-      const archivoPDF = cursos[curso].pdf;
-
-      await enviarPDF(email, archivoPDF);
-
-      res.json({ aprobado: true, enviado: true });
-
+      res.json({ aprobado: true });
     } else {
-      res.json({ aprobado: false, enviado: false });
+      res.json({ aprobado: false });
     }
 
   } catch (error) {
     console.error(error);
-    res.status(500).json({ aprobado: false, enviado: false });
+    res.status(500).json({ aprobado: false });
   }
+});
+
+app.listen(PORT, () => {
+  console.log(`Servidor corriendo en puerto ${PORT}`);
 });
