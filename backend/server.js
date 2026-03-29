@@ -20,8 +20,15 @@ const mpClient = new MercadoPagoConfig({
 /* CURSOS */
 const cursos = {
   te: { titulo: "Curso de Té", precio: 5000, pdf: "pdf/curso-te.pdf" },
-  mate: { titulo: "Curso de Yerba Mate", precio: 4500, pdf: "pdf/curso-mate.pdf" },
-  feng: { titulo: "Curso de Feng Shui", precio: 6000, pdf: "pdf/curso-feng.pdf" }
+
+  mate: { titulo: "Curso mi Primer Mate", precio: 1, pdf: "pdf/curso-mate.pdf" },
+
+  experiencia: { titulo: "Experiencia Yerba Mate", precio: 71000, pdf: "pdf/curso-experiencia.pdf" },
+
+  feng: { titulo: "Curso de Feng Shui", precio: 6000, pdf: "pdf/curso-feng.pdf" },
+
+  // 👇 NUEVO
+  jardines: {   titulo: "Jardines",   precio: 1,   pdf: "pdf/curso-jardines.pdf"}
 };
 
 /* ENDPOINT: crear preferencia de pago */
@@ -80,7 +87,10 @@ app.get("/verificar-pago/:paymentId", async (req, res) => {
     const payment = await paymentClient.get({ id: paymentId });
 
     if (payment.status === "approved") {
-      res.json({ aprobado: true });
+      res.json({ 
+        aprobado: true,
+        curso: payment.metadata.curso // 👈 CLAVE
+      });
     } else {
       res.json({ aprobado: false });
     }
