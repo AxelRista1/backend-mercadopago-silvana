@@ -21,14 +21,14 @@ const mpClient = new MercadoPagoConfig({
 const cursos = {
   te: { titulo: "Curso de Té", precio: 5000, pdf: "pdf/curso-te.pdf" },
 
-  mate: { titulo: "Curso mi Primer Mate", precio: 1, pdf: "pdf/curso-mate.pdf" },
+  mate: { titulo: "Curso mi Primer Mate", precio: 35635, pdf: "pdf/curso-mate.pdf" },
 
   experiencia: { titulo: "Experiencia Yerba Mate", precio: 71000, pdf: "pdf/curso-experiencia.pdf" },
 
-  feng: { titulo: "Curso de Feng Shui", precio: 1, pdf: "pdf/curso-feng.pdf" },
+  feng: { titulo: "Curso de Feng Shui", precio: 67500, pdf: "pdf/curso-feng.pdf" },
 
   // 👇 NUEVO
-  jardines: {   titulo: "Jardines",   precio: 1,   pdf: "pdf/curso-jardines.pdf"}
+  jardines: {   titulo: "Jardines",   precio: 17125,   pdf: "pdf/curso-jardines.pdf"}
 };
 
 /* ENDPOINT: crear preferencia de pago */
