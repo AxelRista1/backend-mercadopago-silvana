@@ -110,16 +110,23 @@ Volver al sitio
 
 
   <script>
+
 const params = new URLSearchParams(window.location.search);
+
 const paymentId = params.get("payment_id");
+const paypalToken = params.get("token");
 
 const archivos = {
+
   feng: "pdf/Guía-FS-TE.2026.pdf",
+
   mate: "pdf/Curso-Yerva-Mate.zip",
+
   jardines: "pdf/Book-Jardín-Zen.pdf"
+
 };
 
-async function verificarPago() {
+async function verificarMercadoPago() {
 
   const res = await fetch(
     `https://backend-mercadopago-silvana.onrender.com/verificar-pago/${paymentId}`
@@ -127,22 +134,73 @@ async function verificarPago() {
 
   const data = await res.json();
 
-  if (data.aprobado) {
+  if(data.aprobado){
 
-    const curso = data.curso;
-    const link = archivos[curso];
+    mostrarDescarga(data.curso);
 
-    const boton = document.getElementById("descarga");
+  }else{
 
-    boton.href = link;
-    boton.style.display = "inline-block";
+    alert("El pago no está aprobado.");
 
-  } else {
-    alert("El pago no está aprobado aún");
   }
+
 }
 
-verificarPago();
+async function verificarPaypal() {
+
+  const res = await fetch(
+    `https://backend-mercadopago-silvana.onrender.com/verificar-paypal/${paypalToken}`
+  );
+
+  const data = await res.json();
+
+  if(data.aprobado){
+
+    mostrarDescarga(data.curso);
+
+  }else{
+
+    alert("El pago de PayPal no fue aprobado.");
+
+  }
+
+}
+
+function mostrarDescarga(curso){
+
+  const boton = document.getElementById("descarga");
+
+  const archivo = archivos[curso];
+
+  if(!archivo){
+
+    alert("No se encontró el archivo del curso.");
+
+    return;
+
+  }
+
+  boton.href = archivo;
+  boton.style.display = "inline-block";
+
+}
+
+if(paymentId){
+
+  verificarMercadoPago();
+
+}
+else if(paypalToken){
+
+  verificarPaypal();
+
+}
+else{
+
+  alert("No se encontró información del pago.");
+
+}
+
 </script>
   
 </body>

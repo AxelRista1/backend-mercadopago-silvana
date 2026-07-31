@@ -13,7 +13,7 @@ font-family: 'Playfair Display', serif;
   line-height: 1.6;
   background:
     linear-gradient(rgba(0, 0, 0, 0.35), rgba(0,0,0,0.45)),
-    url('imagenes/fondo feng shui.jpg') center/cover no-repeat fixed;
+    url('imagenes/fondo\ videos.png') center/cover no-repeat fixed;
   background-color: #fff;
   padding-top: 90px;
 }
@@ -136,67 +136,57 @@ nav {
   transition: transform 0.3s ease;
 }
 
-@media (max-width: 900px) {
-  /* Mostrar flecha en móviles */
+/* -------- MOBILE FIX -------- */
+@media (max-width: 768px) {
+
+  /* Evita que se rompa el header */
+  .main-header {
+    flex-wrap: nowrap; /* 👈 clave */
+    padding: 0.5rem 1rem;
+  }
+
+  /* Nav deja de empujar cosas */
+  nav {
+    flex: none;
+  }
+
+  /* Mostrar hamburguesa */
   .menu-arrow {
     display: block;
   }
 
-  /* Menú principal */
+  /* Ocultar menú */
   .nav-menu {
     display: none;
     flex-direction: column;
+    position: absolute;
+    top: 100%; /* 👈 abajo del header */
+    left: 0;
     width: 100%;
-    margin-top: 1rem;
-    background: rgba(255,255,255,0.97);
-    border-radius: 12px;
+    background: rgba(255,255,255,0.98);
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
   }
 
+  /* Activación */
   .nav-menu.active {
     display: flex;
   }
 
-  .nav-menu li {
-    width: 100%;
-  }
-
+  /* Items */
   .nav-menu li a {
-    padding: 0.8rem 1.2rem;
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
   }
 
-  /* Ocultar submenú completamente */
+  /* Submenús desactivados en mobile */
   .submenu {
-    display: none !important; /* nunca se muestra en móvil */
-  }
-}
-/* -------- HEADER COMPACTO EN CELULARES -------- */
-@media (max-width: 600px) {
-
-  .main-header {
-    padding: 0.4rem 0.8rem; /* menos altura */
-    backdrop-filter: blur(4px);
+    display: none !important;
   }
 
+  /* Logo más chico */
   .logo img {
-    height: 48px; /* reduce mucho el alto */
-  }
-
-  nav {
-    width: auto;
-  }
-
-  .menu-arrow {
-    font-size: 1.6rem;
-  }
-
-  .nav-menu {
-    margin-top: 0.5rem;
-    padding: 0.5rem 0;
-  }
-
-  .nav-menu li a {
-    padding: 0.6rem 1rem;
-    font-size: 0.95rem;
+    height: 45px;
   }
 }
   
@@ -204,37 +194,216 @@ nav {
 
 
 /* -------- HERO -------- */
-.hero, .doss {
+.hero {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
 
-  color: #fff;
-  min-height: 70vh;
   display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: center;
+  padding: 90px 20px 20px;
+  color: #fff;
+}
+
+/* Imagen como portada */
+.hero-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* 🔥 clave para que se comporte como background */
+  z-index: 0;
+}
+
+/* Oscurecedor */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1;
+}
+
+/* Contenido arriba */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  animation: fadeIn 1.2s ease;
+}
+
+/* ===== H1 - MARCA ===== */
+.marca {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500;
+  font-size: clamp(4rem, 6vw, 6rem);
+  color: #30460d;
+  margin-bottom: 0;
+  line-height: 1.1;
+  letter-spacing: 1px;
+}
+
+/* ===== H2 - SUBTÍTULO ===== */
+.subtitulo {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(1.6rem, 3vw, 2rem);
+  color: #4a2020;
+  margin-top: -15px; /* pegado al h1 */
+  margin-bottom: 20px;
+  letter-spacing: 0.5px;
+}
+
+/* ===== H3 - BIENVENIDOS ===== */
+.bienvenidos {
+  font-size: clamp(1.2rem, 4vw, 1.5rem);
+  font-weight: 700;
+  color: #000000; /* 🔥 blanco correcto */
+  margin-bottom: 15px;
+  text-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+
+/* ===== TEXTO ===== */
+.hero p {
+  font-size: 1.3rem;
+  line-height: 1.6;
+  color: #f1f1f1;
+}
+
+/* Animación suave */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+
+  .hero {
+    height: 25vh;
+    width: 100%; /* 🔥 baja un poco la altura para que no corte tanto */
+    padding: 120px 20px 30px;
+    margin-top: 60px;
+  }
+
+  .hero-img {
+    object-fit: cover;
+    object-position: center top; 
+    /* 🔥 clave: muestra más la parte superior de la imagen */
+  }
+
+  .hero-content {
+    width: 100%;
+    max-width: 90%;
+    margin: 0 auto;
+  }
+
+  .marca {
+    font-size: 2.2rem;
+  }
+
+  .subtitulo {
+    font-size: 1.1rem;
+  }
+
+  .bienvenidos {
+    font-size: 1.1rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+}
+
+@media (max-width: 1200px) and (min-width: 769px) {
+
+  .hero {
+    height: 40vh; /* 🔥 un poco menos que desktop */
+    padding: 100px 20px 30px;
+    align-items: flex-start;
+  }
+
+  .hero-img {
+    object-fit: cover;
+    object-position: center 30%; 
+    /* 🔥 clave: ajusta el encuadre para horizontal */
+  }
+
+  .hero-content {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .marca {
+    font-size: 2.6rem;
+  }
+
+  .subtitulo {
+    font-size: 1.3rem;
+  }
+
+  .bienvenidos {
+    font-size: 1.2rem;
+  }
+
+  .hero p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+}
+
+/* CONTENEDOR */
+.loguitos {
+  display: flex;
+  flex-direction: column; /* 🔥 esto los pone uno debajo del otro */
   align-items: center;
   justify-content: center;
   text-align: center;
-  flex-wrap: wrap;
-  padding: 20px;
+  padding: 20px 15px;
 }
 
-
-.hero img {
-  max-width: 90%;
-  height: auto;
-  border-radius: 5px;
+/* TÍTULO */
+.loguitos-titulo {
+  font-style: italic;
+  font-size: clamp(1.2rem, 4vw, 1,7rem);
+  color: #663030;
+  margin-bottom: 15px;
 }
 
-
-.hero-content, .doss-content {
+/* WRAPPER IMAGEN */
+.loguitos div {
+  width: 100%;
   max-width: 700px;
-  padding: 1rem;
-} 
-
-.doss img{
-  max-width: 55%;
-  height: auto;
-  border-radius: 5px;
 }
 
+/* IMAGEN */
+.logo-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .loguitos {
+    padding: 15px 10px;
+  }
+
+  .loguitos div {
+    max-width: 80%;
+  }
+
+  .loguitos-titulo {
+    margin-bottom: 10px;
+  }
+}
 
 
 /* -------- SECCIONES -------- */
@@ -243,19 +412,121 @@ section {
   text-align: center;
 }
 
-/* -------- BOTÓN -------- */
-.btn {
-  display: inline-block;
-  background: #770101;
-  color: #fff;
-  padding: 12px 25px;
-  border-radius: 5px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background 0.3s ease;
+
+/* 🔒 VARIABLES LOCALES SOLO PARA ESTA SECCIÓN */
+.fs-presentacion {
+  --fs-max-width: 1200px;
+  --fs-bg: linear-gradient(135deg, #f5f5f5, #eaeaea);
+  --fs-primary: #663030;
+  --fs-secondary: #7a4b4b;
+  --fs-radius: 24px;
+  --fs-shadow-main: 0 30px 80px rgba(0,0,0,0.25);
+  --fs-shadow-soft: 0 10px 30px rgba(0,0,0,0.15);
+  --fs-spacing: clamp(16px, 3vw, 28px);
 }
-.btn:hover {
-  background: #550000;
+
+/* 🔥 SECCIÓN */
+.fs-presentacion {
+  width: min(95%, 1400px);
+  margin: 0 auto;
+  padding: clamp(50px, 7vw, 90px) 20px;
+  background: var(--fs-bg);
+  border-radius: var(--fs-radius);
+}
+
+/* 📦 CONTENEDOR */
+.fs-container {
+  max-width: var(--fs-max-width);
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--fs-spacing);
+}
+
+/* 🧠 HEADER */
+.fs-header {
+  text-align: center;
+}
+
+/* 🎯 TÍTULO */
+.fs-title {
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  color: var(--fs-primary);
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+/* 🎯 SUBTÍTULO */
+.fs-subtitle {
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  color: var(--fs-secondary);
+  margin: 0;
+}
+
+/* 🎬 VIDEO CONTENEDOR */
+.fs-video-box {
+  width: 100%;
+}
+
+/* 🎥 VIDEO */
+.fs-video {
+  width: 100%;
+  max-width: var(--fs-max-width);
+
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+
+  border-radius: var(--fs-radius);
+  display: block;
+
+  box-shadow: var(--fs-shadow-main), var(--fs-shadow-soft);
+
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+/* ✨ HOVER PRO */
+.fs-video:hover {
+  transform: scale(1.01);
+  box-shadow: 
+    0 40px 100px rgba(0,0,0,0.3),
+    0 15px 40px rgba(0,0,0,0.2);
+}
+
+/* 📲 TABLET */
+@media (max-width: 1024px) {
+  .fs-presentacion {
+    padding: 60px 15px;
+  }
+}
+
+/* 📱 MOBILE */
+@media (max-width: 768px) {
+  .fs-presentacion {
+    width: 100%;
+    border-radius: 0;
+    padding: 50px 15px;
+  }
+
+  .fs-title {
+    font-size: 1.8rem;
+  }
+
+  .fs-subtitle {
+    font-size: 1.05rem;
+  }
+
+  .fs-video {
+    border-radius: 14px;
+  }
+}
+
+/* 📱 MOBILE CHICO */
+@media (max-width: 480px) {
+  .fs-presentacion {
+    padding: 40px 10px;
+  }
 }
 
 .servicios {
@@ -287,27 +558,74 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
-  background:url(imagenes/fondo\ para\ videos) center/cover no-repeat ;
-  margin: 0 auto;
+
+  background: url("imagenes/fondo\ videos.png") center/cover no-repeat;
+  padding: 20px 10px;
+}
+
+/* 🔥 más grande pero manteniendo vertical */
+.video-container video {
   width: 100%;
+  max-width: 500px; /* 👈 antes 400px, ahora más grande */
+
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+
+  border-radius: 10px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+
+  display: block;
+  margin: 0 auto;
+
+  transition: transform 0.7s ease, box-shadow 0.3s ease;
 }
 
-.video-container iframe {
-  width: 700px !important;   /* fuerza un ancho más chico */
-  height: 450px !important;  /* mantiene proporción 16:9 */
-  border: none;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+.video-container video:hover {
+  transform: scale(1.02);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.5);
 }
 
-/* Responsivo para pantallas chicas */
+/* 📱 responsive */
 @media (max-width: 768px) {
-  .video-container iframe {
-    width: 90% !important;
-    height: auto !important;
+  .video-container video {
+    max-width: 95%;
   }
 }
 
+.video-auto-once {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 20px;
+}
+
+/* 🎬 desktop */
+.video-auto-once video {
+  width: 100%;
+  max-width: 900px;
+
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+
+  display: block;
+  margin: 0 auto;
+}
+
+/* 📱 MOBILE (ahora mucho más grande) */
+@media (max-width: 768px) {
+  .video-auto-once {
+    padding: 20px 10px; /* menos espacio lateral */
+  }
+
+  .video-auto-once video {
+    width: 100%;
+    max-width: 100%;   /* 🔥 ocupa todo el ancho */
+    border-radius: 12px; /* un poco menos para que no “achique” visualmente */
+  }
+}
 .recetas {
   background: #fff;
   color: #663030;
@@ -653,6 +971,13 @@ section {
       flex-direction: column !important;
     }
   }
+  @media (max-width: 768px) {
+  .Opciones {
+    width: 100%;        /* 🔥 ocupa todo el ancho */
+    border-radius: 0;   /* opcional: queda más tipo app */
+    padding: 3rem 1rem; /* un poco menos de padding */
+  }
+}
 
 
 
@@ -1098,7 +1423,14 @@ section {
   color: #7a4a4a;
   margin-bottom: 3rem;
 }
-
+/* 📱 MOBILE */
+@media (max-width: 768px) {
+  .Opciones {
+    width: 100%;        /* 🔥 ocupa todo el ancho */
+    border-radius: 0;   /* opcional: queda más tipo app */
+    padding: 3rem 1rem; /* un poco menos de padding */
+  }
+}
 /* -------- CARDS -------- */
 .cards {
   display: flex;
@@ -1210,6 +1542,10 @@ section {
   max-width: 900px;
   margin: 0 auto;
   font-style: italic;
+}
+.testimonios h2{
+
+  color: #fff;
 }
 
 /* -------- CTA -------- */
@@ -1845,62 +2181,71 @@ section {
   background: #4f2323;
 }
 
-/* MODAL CURSO MATE */
+/* ===== MODAL FONDO ===== */
 .modal-mate {
-  display: none;
+  display: none; /* SIEMPRE oculto por defecto */
   position: fixed;
   z-index: 9999;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   background: rgba(0,0,0,0.7);
+
   justify-content: center;
   align-items: center;
+  padding: 20px;
+
+  backdrop-filter: blur(5px);
 }
 
+/* ===== TARJETA (MODAL) ===== */
 .modal-mate-content {
   background: #fff;
   width: 90%;
-  max-width: 600px;
-  padding: 30px;
-  border-radius: 12px;
+  max-width: 700px;
+  margin: auto;
+  padding: 35px 30px;
+  border-radius: 16px;
   position: relative;
   text-align: center;
+
+  box-shadow: 0 20px 50px rgba(0,0,0,0.25);
 }
 
+/* ===== BOTÓN CERRAR ===== */
 .close-mate {
   position: absolute;
   right: 15px;
-  top: 10px;
-  font-size: 25px;
+  top: 18px;
+  font-size: 28px;
   cursor: pointer;
 }
 
-/* CARRUSEL */
+/* ===== CARRUSEL ===== */
 .carousel-mate {
+  margin-bottom: 30px;
   position: relative;
-  margin-bottom: 20px;
 }
 
 .slides-mate {
   position: relative;
-  height: 300px;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-height: 500px;
   overflow: hidden;
+  border-radius: 10px;
 }
 
 .slide-mate {
   width: 100%;
-  height: 300px;
+  height: 100%;
   object-fit: cover;
   display: none;
-  border-radius: 10px;
 }
 
 .active-mate {
   display: block;
 }
 
+/* ===== BOTONES SLIDER ===== */
 .prev-mate, .next-mate {
   position: absolute;
   top: 50%;
@@ -1908,40 +2253,117 @@ section {
   background: rgba(0,0,0,0.5);
   color: white;
   border: none;
-  padding: 10px 15px;
+  padding: 10px 14px;
   cursor: pointer;
   border-radius: 50%;
+  font-size: 18px;
 }
 
 .prev-mate { left: 10px; }
 .next-mate { right: 10px; }
 
-.texto-mate textarea {
-  width: 100%;
-  height: 100px;
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  resize: none;
-  margin-bottom: 20px;
-}
-.input-mate {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 12px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
+/* ===== TEXTO / FORM ===== */
+.texto-mate {
+  margin-bottom: 25px;
 }
 
 .texto-mate textarea {
   width: 100%;
   height: 120px;
-  padding: 10px;
+  padding: 12px;
   border-radius: 8px;
   border: 1px solid #ccc;
   resize: none;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
+
+.input-mate {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+/* ===== BOTÓN PRINCIPAL ===== */
+.btn-slider {
+  display: block;
+  width: 100%;
+  margin-top: 25px;
+  margin-bottom: 35px;
+  padding: 14px;
+  border-radius: 10px;
+  border: none;
+  background: #6b2e2e;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  transition: all 0.3s ease;
+}
+
+.btn-slider:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+}
+
+@media (max-width: 600px) {
+
+  /* 📦 Modal más cómodo en celular */
+  .modal-mate {
+    align-items: flex-start; /* evita que quede pegado arriba */
+    overflow-y: auto; /* permite scrollear */
+    padding: 15px;
+  }
+
+  .modal-mate-content {
+    margin-top: 20px;
+    padding: 20px 15px;
+  }
+
+  /* 🖼 Imagen SIN corte */
+  .slides-mate {
+    aspect-ratio: 4 / 3; /* mejor proporción en celular */
+    max-height: none;
+  }
+
+  .slide-mate {
+    object-fit: contain; /* clave: NO corta la imagen */
+    background: #000; /* relleno elegante */
+  }
+
+  /* ❌ Cruz bien visible */
+  .close-mate {
+    top: 12px;
+    right: 12px;
+    font-size: 26px;
+    z-index: 10;
+  }
+
+  /* 🔘 Botones del slider más accesibles */
+  .prev-mate, .next-mate {
+    padding: 8px 10px;
+    font-size: 16px;
+  }
+
+  /* ✍ Inputs más cómodos */
+  .input-mate {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  .texto-mate textarea {
+    height: 100px;
+  }
+
+  /* 🔘 Botón principal */
+  .btn-slider {
+    font-size: 15px;
+    padding: 13px;
+  }
+}
+
 /* ============================= */
 /*            MODAL              */
 /* ============================= */
@@ -2044,4 +2466,293 @@ section {
 
 .cerrar:hover {
   color: #000;
+}
+.boton-descarga{
+  display:inline-block;
+  background:#1a73e8;
+  color:white;
+  padding:12px 25px;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:bold;
+  margin-top:20px;
+}
+
+.boton-descarga:hover{
+  background:#0f5ed7;
+}
+
+
+
+/* =========================
+   MODAL
+========================= */
+.modal {
+  display: none; /* 👈 solo esto */
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  z-index: 999;
+
+  align-items: center;
+  justify-content: center;
+  padding-top: 120px; /* 👈 baja el modal para no chocar con el menú */
+  backdrop-filter: blur(5px);
+  padding-bottom: 100px;
+}
+
+
+/* =========================
+   CONTENEDOR
+========================= */
+.modal-box {
+  background: #ffffff;
+  width: 100%;
+  max-width: 800px;
+
+  /* 🔥 CLAVE */
+  max-height: 90vh;
+  overflow-y: auto;
+
+  padding: 40px 30px; /* 👈 MÁS AIRE ARRIBA Y ABAJO */
+  border-radius: 16px;
+  padding-bottom: 100px;
+
+  margin: auto; /* 👈 centra vertical */
+
+  box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+}
+
+
+.password-container {
+  position: relative;
+  display: flex;
+}
+
+.tooltip {
+  visibility: hidden;
+  opacity: 0;
+  width: 280px;
+
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 8px;
+  border-radius: 8px;
+
+  position: absolute;
+  bottom: 120%; /* aparece arriba del input */
+  left: 50%;
+  transform: translateX(-50%);
+
+  transition: opacity 0.3s ease;
+  font-size: 0.9em;
+}
+
+/* 🔥 cuando pasás el mouse */
+.password-container:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+/* =========================
+   ANIMACIÓN
+========================= */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================
+   TITULOS
+========================= */
+h2 {
+  color: #7c0a0a8b;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* =========================
+   INPUTS (🔥 NUEVO)
+========================= */
+.modal-box input {
+  width: 100%;
+  padding: 12px 15px;
+  margin: 10px 0;
+
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  outline: none;
+
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.modal-box input:focus {
+  border-color: #0a7c2f;
+  box-shadow: 0 0 0 2px rgba(10,124,47,0.2);
+}
+
+/* =========================
+   PREGUNTAS
+========================= */
+.pregunta {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px 0;
+  border-left: 5px solid #0a7c2f;
+}
+
+/* =========================
+   OPCIONES
+========================= */
+.opcion {
+   padding: 12px;
+  margin: 8px 0;
+  border-radius: 10px;
+  background: #e9ecef;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.opcion:hover {
+  background: #dfe3e6;
+  transform: scale(1.02);
+}
+
+/* =========================
+   ESTADOS
+========================= */
+.seleccionada {
+  background: #cce5ff;
+  border: 2px solid #007bff;
+}
+
+.correcta {
+  background: #b6f5c2;
+}
+
+.incorrecta {
+  background: #f5b6b6;
+}
+
+/* =========================
+   FEEDBACK
+========================= */
+.feedback {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #555;
+}
+
+/* =========================
+   BOTONES
+========================= */
+.btn2 {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: linear-gradient(135deg, #663030, #8b3a3a);
+  color: white;
+  font-weight: bold;
+
+  cursor: pointer;
+  transition: 0.2s;
+
+  margin-top: 25px;
+  margin-bottom: 10px;
+
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+/* Botón abrir */
+.btn-abrir {
+  font-family: 'Playfair Display', serif;
+  padding: 12px 20px;
+  background: #663030;
+  color: white;
+  font-size: large;
+  font-weight: 900;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 600px) {
+  .modal-box {
+    padding: 20px;
+  }
+}
+
+
+/*=============================
+        MODAL PAGOS
+=============================*/
+
+.modal-subtitulo{
+    margin:10px 0 25px;
+    color:#666;
+    font-size:15px;
+    line-height:1.5;
+}
+
+.metodos-pago{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+    margin-top:10px;
+}
+
+.btn-pago{
+    width:100%;
+    border:none;
+    border-radius:10px;
+    padding:16px;
+    font-size:16px;
+    font-weight:700;
+    cursor:pointer;
+    transition:.25s;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:12px;
+}
+
+.btn-pago i{
+    font-size:22px;
+}
+
+.btn-mp{
+    background:#009EE3;
+    color:white;
+}
+
+.btn-mp:hover{
+    background:#0084bf;
+    transform:translateY(-2px);
+}
+
+.btn-paypal{
+    background:#003087;
+    color:white;
+}
+
+.btn-paypal:hover{
+    background:#001f5c;
+    transform:translateY(-2px);
+}
+
+.btn-pago:active{
+    transform:scale(.98);
 }

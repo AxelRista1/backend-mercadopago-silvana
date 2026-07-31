@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Armonía que se vive. Experiencias que transforman.</title>
+  <meta name="description" content="El arte de habitarte.">
+  <link rel="icon" href="imagenes/logo silvana.png" type="image/png">
+  <title>El arte de habitarte.</title>
 
   <!-- CSS externo -->
   <link rel="stylesheet" href="style.css" />
@@ -58,7 +60,7 @@
           <ul class="submenu">
             <li><a href="talleres.html#cursoTé">Curso Té</a></li>
             <li><a href="talleres.html#cursoyerva">Curso Yerba Mate</a></li>
-            <li><a href="talleres.html#Cursofengshui">Curso Feng Shui y té</a></li>
+            <li><a href="talleres.html#Cursofengshui">Guía Feng Shui & Té</a></li>
           </ul>
         </li>
   
@@ -90,26 +92,81 @@
 
   <!-- Hero Section -->
   <section class="hero">
-    <div class="hero-content">
-      <img src="imagenes/logos_nuevos_2_transparente.png" alt="logo1">
-      
-  </section>
+  <!-- Imagen de fondo real -->
+  <img src="imagenes/vilma-image-1 (18).png" alt="Portada" class="hero-img">
+
+</section>
 
   <!-- Servicios -->
 
-  <section class="servicios" id="servicios">
-    <h2>Asesora de Feng Shui</h2>
-    <h2>Sommelier de Té y Yerba Mate</h2>
+  <section class="fs-presentacion" id="presentacion">
+  <div class="fs-container">
+
+    <div class="fs-header">
+      <h3 class="bienvenidos">¡Bienvenidos!</h3>
+
     <p>
-      Me presento.
+      Soy <strong>Silvana Schenk</strong> y creo que cuando tu entorno fluye,
+      tu vida fluye con él.
     </p>
-  
-    <div class="video-container"><video controls>
-        <source src="imagenes/video presentacion.mp4" type="video/mp4">
+
+    <p>
+      Desde joven sentí la poderosa conexión entre los espacios y el bienestar.
+      Hoy decidí dedicar mi vida a acompañar transformaciones reales y auténticas,
+      tanto en hogares como en empresas.
+    </p>
+
+    <p>
+      ¿Cómo lo hago? Integro mis pasiones: el <strong>Feng Shui</strong> para armonizar,
+      junto con la ceremonia del <strong>Té</strong> y la cultura del <strong>Mate</strong>
+      a través de la sommelierie, invitando a crear momentos de pausa, conexión y sentido.
+    </p>
+
+    <p>
+      Diseño experiencias integrales donde cada espacio y cada ritual potencian
+      tu energía y tu propósito.
+    </p>
+
+    <p>
+      Te escucho, conecto con tu esencia y trabajo contigo en pequeños cambios
+      que generan grandes impactos. Así nace el <strong>Método Schenk</strong>:
+      una fusión de tradición, modernidad y sensibilidad para ayudarte a encontrar
+      un nuevo equilibrio en tu hogar y en tu vida.
+    </p>
+
+    <p>
+      ¿Listo para vivir la transformación? <br> 
+      <strong>Explorá la web y descubrí todas las
+      formas en las que puedo acompañarte.</strong>
+    </p>
+    </div>
+
+    <div class="fs-video-box">
+      <video 
+        id="videoPromo"
+        class="fs-video"
+        controls
+        playsinline
+        preload="auto">
+          <source src="imagenes/video presentacion.mp4" type="video/mp4">
         Tu navegador no soporta el video.
       </video>
     </div>
-  </section>
+
+  </div>
+  
+  <section class="loguitos">
+  <h2 class="loguitos-titulo">Me formé en las siguientes instituciones:</h2>
+
+  <div>
+    <img src="imagenes/loguitos.png" alt="almibar" class="logo-img">
+  </div>
+</section>
+</section>
+
+  
+
+
   <section class="testimonios">
     <h2>¿Qué es el Feng Shui?</h2>
     <div class="testimonio">
@@ -133,7 +190,7 @@
       <div class="card">
         <img src="imagenes/Placa Asesoramiento Feng Shui.png" alt="Asesoría Feng Shui" />
         <div>
-          <h3><a href="cursos.html">Asesoría Feng Shui</a></h3>
+          <h3><a href="asesoria.html">Asesoría Feng Shui</a></h3>
           <p>Te enseñaré paso a paso cómo lograr armonía en tus espacios.</p>
         </div>
       </div>
@@ -200,7 +257,7 @@
       <p>&copy; 2026 | Axel Rista | Diseño Web</p>
       <div class="social-icons">
         <a href="https://www.instagram.com/silvana.schenk" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.facebook.com/SilvanaSchenkSommelier" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.facebook.com/profile.php?id=100084472635702" target="_blank"><i class="fab fa-facebook-f"></i></a>
         <a href="https://wa.me/5493496508751" target="_blank"><i class="fab fa-whatsapp"></i></a>
         <a href="https://www.youtube.com/@SilvanaSchenk" target="_blank"><i class="fab fa-youtube"></i></a>
         <a href="https://www.linkedin.com/in/silvana-schenk-68116267" target="_blank"><i class="fab fa-linkedin-in"></i></a>
@@ -220,6 +277,40 @@
         : 'rotate(0)';
     });
   </script>
+
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const video = document.getElementById("videoPromo");
+  let yaSeReprodujo = false;
+  let usuarioInteractuo = false;
+
+  // Detecta si el usuario tocó el video (play, pause, volumen, etc)
+  video.addEventListener("play", () => usuarioInteractuo = true);
+  video.addEventListener("pause", () => usuarioInteractuo = true);
+  video.addEventListener("volumechange", () => usuarioInteractuo = true);
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+
+      if (entry.isIntersecting && !yaSeReprodujo) {
+
+        // autoplay sin sonido (lo seguro)
+        video.muted = true;
+
+        video.play().catch(() => {});
+        yaSeReprodujo = true;
+
+      } else if (!entry.isIntersecting && !usuarioInteractuo) {
+        // solo pausa automática si el usuario NO tocó nada
+        video.pause();
+      }
+
+    });
+  }, { threshold: 0.6 });
+
+  observer.observe(video);
+});
+</script>
   
 </body>
 </html>
