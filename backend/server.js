@@ -33,7 +33,7 @@ const ordenesPaypal = {};
 
 const PAYPAL_API =
 process.env.PAYPAL_API ||
-"https://api-m.sandbox.paypal.com";
+"https://api-m.paypal.com";
 
 
 
@@ -59,35 +59,36 @@ const cursos = {
 
   te:{
     titulo:"Curso de Té",
-    precio:5000,
+    precio:5000,          // Mercado Pago (ARS)
+    precioUSD:"5.00",     // PayPal (USD)
     pdf:"pdf/curso-te.pdf"
   },
 
-
   mate:{
     titulo:"Curso mi Primer Mate",
-    precio:35635,
+    precio:77000,
+    precioUSD:"77",
     pdf:"pdf/curso-yerva-mate.zip"
   },
 
-
   experiencia:{
     titulo:"Experiencia Yerba Mate",
-    precio:71000,
+    precio:137000,
+    precioUSD:"137",
     pdf:"pdf/curso-experiencia.pdf"
   },
 
-
   feng:{
     titulo:"Curso de Feng Shui",
-    precio:67500,
+    precio:87000,
+    precioUSD:"87",
     pdf:"pdf/curso-feng.pdf"
   },
 
-
   jardines:{
     titulo:"Jardines",
-    precio:17125,
+    precio:17000,
+    precioUSD:"17",
     pdf:"pdf/curso-jardines.pdf"
   }
 
@@ -192,11 +193,9 @@ description:cursos[curso].titulo,
 
 amount:{
 
-currency_code:"USD",
+  currency_code:"USD",
 
-value:
-(cursos[curso].precio / 1400)
-.toFixed(2)
+  value:cursos[curso].precioUSD
 
 }
 
